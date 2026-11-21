@@ -1,0 +1,10 @@
+{"expect": "initialize", "result": {"userAgent": "rudder/0.163.0", "codexHome": "/tmp/codex-home", "platformFamily": "unix", "platformOs": "macos"}}
+{"expect": "initialized"}
+{"expect": "thread/start", "result": {"thread": {"id": "thr-compact", "sessionId": "thr-compact", "cwd": "/tmp/ws", "status": {"type": "idle"}, "turns": []}, "model": "gpt-6-luna", "modelProvider": "openai", "cwd": "/tmp/ws", "approvalPolicy": "untrusted", "approvalsReviewer": "user", "sandbox": {"type": "workspaceWrite", "writableRoots": [], "networkAccess": false, "excludeTmpdirEnvVar": false, "excludeSlashTmp": false}, "reasoningEffort": "low"}}
+{"send": {"method": "thread/started", "params": {"thread": {"id": "thr-compact"}}}}
+{"expect": "turn/start", "result": {"turn": {"id": "turn-c1", "rootTurnId": "turn-c1", "items": [], "itemsView": "notLoaded", "status": "inProgress", "error": null}}}
+{"send": {"method": "turn/started", "params": {"threadId": "thr-compact", "turn": {"id": "turn-c1", "rootTurnId": "turn-c1", "items": [], "itemsView": "notLoaded", "status": "inProgress", "error": null}}}}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-compact", "turnId": "turn-c1", "item": {"type": "agentMessage", "id": "comment", "text": "I will merge", "phase": "commentary"}}}}
+{"send": {"method": "turn/completed", "params": {"threadId": "thr-compact", "turn": {"id": "turn-c1", "status": "completed", "items": [{"type": "imageGeneration", "id": "img-b64", "status": "completed", "savedPath": "/no/such/rudder-image.png", "result": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12P4z8AAAAADAAEABf4C/tzMWecAAAAASUVORK5CYII="}]}}}}
+{"sleep": 5}
+{"exit": 0}

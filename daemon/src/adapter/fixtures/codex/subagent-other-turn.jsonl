@@ -1,0 +1,23 @@
+{"expect": "initialize", "result": {"userAgent": "rudder/0.169.0", "codexHome": "/tmp/codex-home", "platformFamily": "unix", "platformOs": "macos"}}
+{"expect": "initialized"}
+{"expect": "thread/start", "result": {"thread": {"id": "thr-other", "sessionId": "thr-other", "cwd": "/tmp/ws", "status": {"type": "idle"}, "turns": []}, "model": "gpt-6-luna", "modelProvider": "openai", "cwd": "/tmp/ws", "approvalPolicy": "untrusted", "approvalsReviewer": "user", "sandbox": {"type": "workspaceWrite", "writableRoots": [], "networkAccess": false, "excludeTmpdirEnvVar": false, "excludeSlashTmp": false}, "reasoningEffort": "low"}}
+{"expect": "turn/start", "result": {"turn": {"id": "turn-o1", "rootTurnId": "turn-o1", "items": [], "itemsView": "notLoaded", "status": "inProgress", "error": null}}}
+{"send": {"method": "thread/status/changed", "params": {"threadId": "thr-other", "status": {"type": "active", "activeFlags": []}}}}
+{"send": {"method": "turn/started", "params": {"threadId": "thr-other", "turn": {"id": "turn-o1", "rootTurnId": "turn-o1", "items": [], "itemsView": "notLoaded", "status": "inProgress", "error": null}}}}
+{"send": {"method": "item/started", "params": {"threadId": "thr-other", "turnId": "turn-o1", "item": {"type": "collabAgentToolCall", "id": "spawn-o1", "tool": "spawnAgent", "status": "inProgress", "senderThreadId": "thr-other", "receiverThreadIds": [], "prompt": "run the slow check", "agentsStates": {}}}}}
+{"send": {"method": "thread/status/changed", "params": {"threadId": "thr-other-child", "status": {"type": "idle"}}}}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-other", "turnId": "turn-o1", "item": {"type": "collabAgentToolCall", "id": "spawn-o1", "tool": "spawnAgent", "status": "completed", "senderThreadId": "thr-other", "receiverThreadIds": ["thr-other-child"], "prompt": "run the slow check", "agentsStates": {"thr-other-child": {"status": "pendingInit", "message": null}}}}}}
+{"send": {"method": "thread/status/changed", "params": {"threadId": "thr-other-child", "status": {"type": "active", "activeFlags": []}}}}
+{"send": {"method": "turn/started", "params": {"threadId": "thr-other-child", "turn": {"id": "turn-oc1", "rootTurnId": "turn-o1", "items": [], "itemsView": "notLoaded", "status": "inProgress", "error": null}}}}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-other", "turnId": "turn-o1", "item": {"type": "agentMessage", "id": "msg_o1", "text": "Spawned subagent.", "phase": "final_answer", "memoryCitation": null, "delivery": null, "questions": null}}}}
+{"send": {"method": "thread/status/changed", "params": {"threadId": "thr-other", "status": {"type": "idle"}}}}
+{"send": {"method": "turn/completed", "params": {"threadId": "thr-other", "turn": {"id": "turn-o1", "rootTurnId": "turn-o1", "items": [], "itemsView": "full", "status": "completed", "error": null}}}}
+{"expect": "turn/start", "result": {"turn": {"id": "turn-o2", "rootTurnId": "turn-o2", "items": [], "itemsView": "notLoaded", "status": "inProgress", "error": null}}}
+{"send": {"method": "thread/status/changed", "params": {"threadId": "thr-other", "status": {"type": "active", "activeFlags": []}}}}
+{"send": {"method": "turn/started", "params": {"threadId": "thr-other", "turn": {"id": "turn-o2", "rootTurnId": "turn-o2", "items": [], "itemsView": "notLoaded", "status": "inProgress", "error": null}}}}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-other-child", "turnId": "turn-oc1", "item": {"type": "agentMessage", "id": "msg_oc1", "text": "CHILD_DONE", "phase": "final_answer", "memoryCitation": null, "delivery": null, "questions": null}}}}
+{"send": {"method": "thread/status/changed", "params": {"threadId": "thr-other-child", "status": {"type": "idle"}}}}
+{"send": {"method": "turn/completed", "params": {"threadId": "thr-other-child", "turn": {"id": "turn-oc1", "rootTurnId": "turn-o1", "items": [{"type": "agentMessage", "id": "msg_oc1", "text": "CHILD_DONE", "phase": "final_answer", "memoryCitation": null, "delivery": null, "questions": null}], "itemsView": "summary", "status": "completed", "error": null}}}}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-other", "turnId": "turn-o2", "item": {"type": "agentMessage", "id": "msg_o2", "text": "Second answer.", "phase": "final_answer", "memoryCitation": null, "delivery": null, "questions": null}}}}
+{"send": {"method": "thread/status/changed", "params": {"threadId": "thr-other", "status": {"type": "idle"}}}}
+{"send": {"method": "turn/completed", "params": {"threadId": "thr-other", "turn": {"id": "turn-o2", "rootTurnId": "turn-o2", "items": [], "itemsView": "full", "status": "completed", "error": null}}}}

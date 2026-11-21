@@ -1,0 +1,9 @@
+{"expect":"initialize","result":{}}
+{"expect":"initialized"}
+{"expect":"thread/start","result":{"thread":{"id":"thr-edge"}}}
+{"expect":"turn/start","result":{"turn":{"id":"turn-e1","status":"inProgress","error":null}}}
+{"send":{"method":"item/started","params":{"threadId":"thr-edge","turnId":"turn-e1","item":{"type":"fileChange","id":"fc-e1","changes":[{"path":"/tmp/ws/a.txt","diff":"hello\n"}]}}}}
+{"send":{"method":"thread/tokenUsage/updated","params":{"threadId":"thr-edge","turnId":"turn-e1","tokenUsage":{"modelContextWindow":null}}}}
+{"send":{"method":"turn/plan/updated","params":{"threadId":"thr-edge","turnId":"turn-e1","explanation":null,"plan":[{"step":"Read","status":"completed"},{"step":"Write","status":"inProgress"},{"step":"Test","status":"pending"}]}}}
+{"send":{"method":"item/completed","params":{"threadId":"thr-edge","turnId":"turn-e1","item":{"type":"agentMessage","id":"msg-e1","text":"done"}}}}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-edge","turn":{"id":"turn-e1","status":"completed","error":null}}}}

@@ -1,0 +1,11 @@
+{"expect": "initialize", "result": {"userAgent": "rudder/0.169.0"}}
+{"expect": "initialized"}
+{"expect": "thread/start", "result": {"thread": {"id": "thr-mcp", "turns": []}}}
+{"expect": "turn/start", "result": {"turn": {"id": "turn-1", "status": "inProgress"}}}
+{"send": {"method": "item/started", "params": {"threadId": "thr-mcp", "turnId": "turn-1", "item": {"type": "mcpToolCall", "id": "mcp-1", "server": "probe", "tool": "order_pizza", "status": "inProgress", "arguments": {}}}}}
+{"send": {"id": 0, "method": "mcpServer/elicitation/request", "params": {"threadId": "thr-mcp", "turnId": "turn-1", "serverName": "probe", "mode": "form", "_meta": {"codex_approval_kind": "mcp_tool_call", "persist": ["session", "always"], "tool_name": "order_pizza", "tool_description": "Ask the user how they want their pizza.", "tool_params": {}, "tool_params_display": []}, "message": "Allow the probe MCP server to run tool \"order_pizza\"?", "requestedSchema": {"type": "object", "properties": {}}}}}
+{"reply": 0}
+{"send": {"id": 1, "method": "mcpServer/elicitation/request", "params": {"threadId": "thr-mcp", "turnId": "turn-1", "serverName": "probe", "mode": "form", "_meta": null, "message": "How do you want your pizza?", "requestedSchema": {"type": "object", "properties": {"toppings": {"type": "array", "title": "Toppings", "description": "Pick any number", "items": {"type": "string", "enum": ["cheese", "mushroom", "olive", "pepper"]}}, "size": {"type": "string", "title": "Size", "oneOf": [{"const": "s", "title": "Small"}, {"const": "l", "title": "Large"}]}}, "required": ["toppings", "size"]}}}}
+{"reply": 1}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-mcp", "turnId": "turn-1", "item": {"type": "agentMessage", "id": "m1", "text": "Ordered."}}}}
+{"send": {"method": "turn/completed", "params": {"threadId": "thr-mcp", "turn": {"id": "turn-1", "status": "completed"}}}}

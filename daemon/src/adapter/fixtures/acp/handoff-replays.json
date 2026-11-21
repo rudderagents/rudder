@@ -1,0 +1,729 @@
+{
+  "_note": "Grok 1.0.x / Copilot 1.0.105 session/list + session/load replays (2026-11-18, read only, no prompt). Grok: a recorder session (test prompt, no owner text); paths replaced. Copilot: the owner greeting replaced; its tool call is the live shape from copilot/recorded/tool-bash.jsonl. Tests fill cwd and updatedAt.",
+  "grok": {
+    "session": {
+      "sessionId": "01a1e9af-55ac-75f2-a96d-1d5cdf7aad23",
+      "cwd": "$CWD",
+      "title": "MultiSelect pizza toppings cheese mushroom olive",
+      "updatedAt": "2026-11-17T13:26:03.972041+00:00",
+      "_meta": {
+        "x.ai/session": {
+          "kind": "build",
+          "facets": {
+            "cwd": "$CWD",
+            "kind": "build"
+          }
+        }
+      }
+    },
+    "replay": [
+      {
+        "method": "_x.ai/session/update",
+        "update": {
+          "sessionUpdate": "hook_execution",
+          "event_name": "session_start",
+          "runs": [
+            {
+              "name": "plugin/token-optimizer/hooks:session_start[0].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 431
+              }
+            }
+          ]
+        },
+        "_meta": {
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-2",
+          "agentTimestampMs": 1794921966778,
+          "isReplay": true
+        }
+      },
+      {
+        "method": "_x.ai/session/update",
+        "update": {
+          "sessionUpdate": "hook_execution",
+          "event_name": "user_prompt_submit",
+          "prompt_id": "ad041132-e28f-44e6-9447-51e7d9cb78ba",
+          "runs": [
+            {
+              "name": "plugin/claude-mem/hooks:user_prompt_submit[0].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 892
+              }
+            },
+            {
+              "name": "plugin/token-optimizer/hooks:user_prompt_submit[0].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 191
+              }
+            }
+          ]
+        },
+        "_meta": {
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-3",
+          "agentTimestampMs": 1794921967457,
+          "isReplay": true
+        }
+      },
+      {
+        "method": "session/update",
+        "update": {
+          "sessionUpdate": "user_message_chunk",
+          "content": {
+            "type": "text",
+            "text": "Call the order_pizza tool from the probe MCP server, then tell me exactly what it returned."
+          },
+          "_meta": {
+            "modelId": "grok-4.7-build-fast",
+            "promptIndex": 0
+          }
+        },
+        "_meta": {
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-4",
+          "agentTimestampMs": 1794921967457,
+          "isReplay": true
+        }
+      },
+      {
+        "method": "_x.ai/session/update",
+        "update": {
+          "sessionUpdate": "hook_execution",
+          "event_name": "post_tool_use",
+          "tool_name": "search_tool",
+          "runs": [
+            {
+              "name": "plugin/claude-mem/hooks:post_tool_use[0].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 84
+              }
+            }
+          ]
+        },
+        "_meta": {
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-10",
+          "agentTimestampMs": 1794921974344,
+          "isReplay": true
+        }
+      },
+      {
+        "method": "session/update",
+        "update": {
+          "sessionUpdate": "tool_call",
+          "toolCallId": "call-b76ffecd-812b-477c-9b1e-6bdd96d57d5b-0",
+          "title": "Search tools: \"probe order_pizza\"",
+          "status": "completed",
+          "content": [
+            {
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": "{\n  \"results\": [\n    {\n      \"server\": \"probe\",\n      \"tools\": [\n        {\n          \"tool_name\": \"probe__order_pizza\",\n          \"description\": \"Ask the user how they want their pizza (a form), then return their choices.\",\n          \"score\": 37.80554962158203,\n          \"input_schema\": {\n            \"type\": \"object\",\n            \"properties\": {}\n          }\n        }\n      ]\n    },\n    {\n      \"server\": \"idalib\",\n      \"tools\": [\n        {\n          \"tool_name\": \"idalib__server_health\",\n          \"description\": \"Health/ready probe for MCP server and current IDB state.\",\n          \"score\": 12.25416374206543,\n          \"input_schema\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"database\": {\n                \"type\": \"string\",\n                \"description\": \"Session ID returned by idb_open. Use idb_list to enumerate open sessions.\"\n              }\n            },\n            \"required\": [\n              \"database\"\n            ]\n          }\n        }\n      ]\n    },\n    {\n      \"server\": \"mcp-search\",\n      \"tools\": [\n        {\n          \"tool_name\": \"mcp-search__search\",\n          \"description\": \"Smart search (default), step 1: search memory for an index with IDs. Review it, use timeline for context, then get_observations only for selected IDs. Params: query, limit, project, platformSource, type, obs_type, dateStart, dateEnd, offset, orderBy\",\n          \"score\": 3.7181153297424316,\n          \"input_schema\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"query\": {\n                \"type\": \"string\",\n                \"description\": \"Search query\"\n              },\n              \"deep\": {\n                \"type\": \"boolean\",\n                \"description\": \"Opt-in local raw-tool search when observations have no matches. Requires CLAUDE_MEM_TOOL_USES_SEARCH_ENABLED; first page only. Results use T IDs; fetch selected numeric IDs with get_tool_uses.\"\n              },\n              \"limit\": {\n                \"type\": \"number\",\n                \"description\": \"Max results (default 20)\"\n              },\n              \"project\": {\n                \"type\": \"string\",\n                \"description\": \"Worker project name\"\n              },\n              \"projectId\": {\n                \"type\": \"string\",\n                \"description\": \"Server project ID; defaults to the configured server project\"\n              },\n              \"platformSource\": {\n                \"type\": \"string\",\n                \"description\": \"Filter by platform source (e.g. claude, codex, cursor) — restricts results to that agent's own memory\"\n              },\n              \"type\": {\n                \"type\": \"string\",\n                \"description\": \"Document category to search: 'observations', 'sessions', or 'prompts' (default: all). Any other value is treated as an observation-type filter (alias for obs_type).\"\n              },\n              \"obs_type\": {\n                \"type\": \"string\",\n                \"description\": \"Filter observations by their type (e.g. bugfix, feature). Comma-separated for multiple.\"\n              },\n              \"dateStart\": {\n                \"type\": \"string\",\n                \"description\": \"Start date filter (ISO)\"\n              },\n              \"dateEnd\": {\n                \"type\": \"string\",\n                \"description\": \"End date filter (ISO)\"\n              },\n              \"offset\": {\n                \"type\": \"number\",\n                \"description\": \"Pagination offset\"\n              },\n              \"orderBy\": {\n                \"type\": \"string\",\n                \"description\": \"Sort order: date_desc or date_asc\"\n              }\n            },\n            \"additionalProperties\": true\n          }\n        }\n      ]\n    }\n  ],\n  \"total_hidden_tools\": 239,\n  \"status\": \"ready\",\n  \"note\": null\n}"
+              }
+            }
+          ],
+          "rawInput": {
+            "variant": "SearchTool",
+            "query": "probe order_pizza",
+            "limit": 10
+          },
+          "rawOutput": {
+            "type": "SearchTool",
+            "result_count": 3,
+            "content": "{\n  \"results\": [\n    {\n      \"server\": \"probe\",\n      \"tools\": [\n        {\n          \"tool_name\": \"probe__order_pizza\",\n          \"description\": \"Ask the user how they want their pizza (a form), then return their choices.\",\n          \"score\": 37.80554962158203,\n          \"input_schema\": {\n            \"type\": \"object\",\n            \"properties\": {}\n          }\n        }\n      ]\n    },\n    {\n      \"server\": \"idalib\",\n      \"tools\": [\n        {\n          \"tool_name\": \"idalib__server_health\",\n          \"description\": \"Health/ready probe for MCP server and current IDB state.\",\n          \"score\": 12.25416374206543,\n          \"input_schema\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"database\": {\n                \"type\": \"string\",\n                \"description\": \"Session ID returned by idb_open. Use idb_list to enumerate open sessions.\"\n              }\n            },\n            \"required\": [\n              \"database\"\n            ]\n          }\n        }\n      ]\n    },\n    {\n      \"server\": \"mcp-search\",\n      \"tools\": [\n        {\n          \"tool_name\": \"mcp-search__search\",\n          \"description\": \"Smart search (default), step 1: search memory for an index with IDs. Review it, use timeline for context, then get_observations only for selected IDs. Params: query, limit, project, platformSource, type, obs_type, dateStart, dateEnd, offset, orderBy\",\n          \"score\": 3.7181153297424316,\n          \"input_schema\": {\n            \"type\": \"object\",\n            \"properties\": {\n              \"query\": {\n                \"type\": \"string\",\n                \"description\": \"Search query\"\n              },\n              \"deep\": {\n                \"type\": \"boolean\",\n                \"description\": \"Opt-in local raw-tool search when observations have no matches. Requires CLAUDE_MEM_TOOL_USES_SEARCH_ENABLED; first page only. Results use T IDs; fetch selected numeric IDs with get_tool_uses.\"\n              },\n              \"limit\": {\n                \"type\": \"number\",\n                \"description\": \"Max results (default 20)\"\n              },\n              \"project\": {\n                \"type\": \"string\",\n                \"description\": \"Worker project name\"\n              },\n              \"projectId\": {\n                \"type\": \"string\",\n                \"description\": \"Server project ID; defaults to the configured server project\"\n              },\n              \"platformSource\": {\n                \"type\": \"string\",\n                \"description\": \"Filter by platform source (e.g. claude, codex, cursor) — restricts results to that agent's own memory\"\n              },\n              \"type\": {\n                \"type\": \"string\",\n                \"description\": \"Document category to search: 'observations', 'sessions', or 'prompts' (default: all). Any other value is treated as an observation-type filter (alias for obs_type).\"\n              },\n              \"obs_type\": {\n                \"type\": \"string\",\n                \"description\": \"Filter observations by their type (e.g. bugfix, feature). Comma-separated for multiple.\"\n              },\n              \"dateStart\": {\n                \"type\": \"string\",\n                \"description\": \"Start date filter (ISO)\"\n              },\n              \"dateEnd\": {\n                \"type\": \"string\",\n                \"description\": \"End date filter (ISO)\"\n              },\n              \"offset\": {\n                \"type\": \"number\",\n                \"description\": \"Pagination offset\"\n              },\n              \"orderBy\": {\n                \"type\": \"string\",\n                \"description\": \"Sort order: date_desc or date_asc\"\n              }\n            },\n            \"additionalProperties\": true\n          }\n        }\n      ]\n    }\n  ],\n  \"total_hidden_tools\": 239,\n  \"status\": \"ready\",\n  \"note\": null\n}"
+          },
+          "_meta": {
+            "x.ai/tool": {
+              "version": 1,
+              "name": "search_tool",
+              "kind": "search_tool",
+              "namespace": "grok_build",
+              "label": "Search Tools",
+              "read_only": false
+            }
+          }
+        },
+        "_meta": {
+          "totalTokens": 54347,
+          "requestTrimmedTokens": 0,
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-9",
+          "agentTimestampMs": 1794921974344,
+          "promptId": "ad041132-e28f-44e6-9447-51e7d9cb78ba",
+          "streamStartMs": 1794921970349,
+          "turnStartMs": 1794921966351,
+          "updateType": "ToolCallUpdate",
+          "updateParams": {
+            "toolCallId": "call-b76ffecd-812b-477c-9b1e-6bdd96d57d5b-0",
+            "status": "Completed"
+          },
+          "isReplay": true
+        }
+      },
+      {
+        "method": "_x.ai/session/update",
+        "update": {
+          "sessionUpdate": "hook_execution",
+          "event_name": "pre_tool_use",
+          "tool_name": "probe__order_pizza",
+          "runs": [
+            {
+              "name": "plugin/token-optimizer/hooks:pre_tool_use[3].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 121
+              }
+            }
+          ]
+        },
+        "_meta": {
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-14",
+          "agentTimestampMs": 1794921980038,
+          "isReplay": true
+        }
+      },
+      {
+        "method": "_x.ai/session/update",
+        "update": {
+          "sessionUpdate": "hook_execution",
+          "event_name": "post_tool_use",
+          "tool_name": "probe__order_pizza",
+          "runs": [
+            {
+              "name": "plugin/claude-mem/hooks:post_tool_use[0].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 56
+              }
+            },
+            {
+              "name": "plugin/token-optimizer/hooks:post_tool_use[0].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 94
+              }
+            }
+          ]
+        },
+        "_meta": {
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-17",
+          "agentTimestampMs": 1794921980209,
+          "isReplay": true
+        }
+      },
+      {
+        "method": "session/update",
+        "update": {
+          "sessionUpdate": "tool_call",
+          "toolCallId": "call-4fe61fbd-25a6-4c85-b1ed-6ca40f80cc56-1",
+          "title": "probe__order_pizza",
+          "status": "completed",
+          "rawInput": {
+            "variant": "UseTool",
+            "tool_name": "probe__order_pizza",
+            "tool_input": {}
+          },
+          "rawOutput": {
+            "type": "MCP",
+            "tool_name": "order_pizza",
+            "server_name": "probe",
+            "output": {
+              "OkayOutput": "[grok] MCP server \"probe\" asked the user for input while this call was running and it was cancelled without an answer. Do not assume the requested action was performed; tell the user and ask before retrying.\nelicitation result: {\"action\":\"cancel\"}"
+            }
+          },
+          "_meta": {
+            "x.ai/tool": {
+              "version": 1,
+              "name": "use_tool",
+              "kind": "use_tool",
+              "namespace": "grok_build",
+              "label": "Use Tool",
+              "read_only": false
+            }
+          }
+        },
+        "_meta": {
+          "totalTokens": 56973,
+          "requestTrimmedTokens": 0,
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-16",
+          "agentTimestampMs": 1794921980209,
+          "promptId": "ad041132-e28f-44e6-9447-51e7d9cb78ba",
+          "streamStartMs": 1794921976071,
+          "turnStartMs": 1794921966351,
+          "updateType": "ToolCallUpdate",
+          "updateParams": {
+            "toolCallId": "call-4fe61fbd-25a6-4c85-b1ed-6ca40f80cc56-1",
+            "status": "Completed"
+          },
+          "isReplay": true
+        }
+      },
+      {
+        "method": "session/update",
+        "update": {
+          "sessionUpdate": "agent_thought_chunk",
+          "content": {
+            "type": "text",
+            "text": "The tool was cancelled because it asked for input and the user cancelled."
+          }
+        },
+        "_meta": {
+          "totalTokens": 57034,
+          "requestTrimmedTokens": 0,
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-22",
+          "agentTimestampMs": 1794921982437,
+          "promptId": "ad041132-e28f-44e6-9447-51e7d9cb78ba",
+          "streamStartMs": 1794921981897,
+          "turnStartMs": 1794921966351,
+          "updateType": "AgentThoughtChunk",
+          "chunkId": 4,
+          "isReplay": true
+        }
+      },
+      {
+        "method": "_x.ai/session/update",
+        "update": {
+          "sessionUpdate": "hook_execution",
+          "event_name": "pre_tool_use",
+          "tool_name": "run_terminal_command",
+          "runs": [
+            {
+              "name": "plugin/claude-mem/hooks:pre_tool_use[0].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 69
+              }
+            },
+            {
+              "name": "plugin/token-optimizer/hooks:pre_tool_use[1].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 79
+              }
+            }
+          ]
+        },
+        "_meta": {
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-25",
+          "agentTimestampMs": 1794921983771,
+          "isReplay": true
+        }
+      },
+      {
+        "method": "_x.ai/session/update",
+        "update": {
+          "sessionUpdate": "hook_execution",
+          "event_name": "post_tool_use",
+          "tool_name": "run_terminal_command",
+          "runs": [
+            {
+              "name": "plugin/claude-mem/hooks:post_tool_use[0].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 51
+              }
+            },
+            {
+              "name": "plugin/token-optimizer/hooks:post_tool_use[0].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 87
+              }
+            }
+          ]
+        },
+        "_meta": {
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-28",
+          "agentTimestampMs": 1794921984067,
+          "isReplay": true
+        }
+      },
+      {
+        "method": "session/update",
+        "update": {
+          "sessionUpdate": "tool_call",
+          "toolCallId": "call-1c548cd6-6ade-41fc-9581-349f9977cc81-2",
+          "title": "Execute `TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S %Z'`",
+          "kind": "execute",
+          "status": "completed",
+          "content": [
+            {
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": "2026-11-17 21:26:23 CST\n"
+              }
+            }
+          ],
+          "rawInput": {
+            "variant": "Bash",
+            "command": "TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S %Z'",
+            "description": "Get current CST timestamp",
+            "is_background": false
+          },
+          "rawOutput": {
+            "type": "Bash",
+            "output": [
+              50,
+              48,
+              50,
+              54,
+              45,
+              49,
+              49,
+              45,
+              49,
+              55,
+              32,
+              50,
+              49,
+              58,
+              50,
+              54,
+              58,
+              50,
+              51,
+              32,
+              67,
+              83,
+              84,
+              10
+            ],
+            "output_for_prompt": "exit: 0\n2026-11-17 21:26:23 CST\n",
+            "exit_code": 0,
+            "command": "TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S %Z'",
+            "truncated": false,
+            "signal": null,
+            "timed_out": false,
+            "description": "Get current CST timestamp",
+            "current_dir": "$CWD",
+            "output_file": "/Users/user/.grok/sessions/%24CWD/01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f/terminal/call-1c548cd6-6ade-41fc-9581-349f9977cc81-2.log",
+            "total_bytes": 24
+          },
+          "_meta": {
+            "x.ai/tool": {
+              "version": 1,
+              "name": "run_terminal_command",
+              "kind": "execute",
+              "namespace": "grok_build",
+              "label": "Run Command",
+              "read_only": false
+            }
+          }
+        },
+        "_meta": {
+          "totalTokens": 57256,
+          "requestTrimmedTokens": 0,
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-27",
+          "agentTimestampMs": 1794921984066,
+          "promptId": "ad041132-e28f-44e6-9447-51e7d9cb78ba",
+          "streamStartMs": 1794921981897,
+          "turnStartMs": 1794921966351,
+          "updateType": "ToolCallUpdate",
+          "updateParams": {
+            "toolCallId": "call-1c548cd6-6ade-41fc-9581-349f9977cc81-2",
+            "status": "Completed"
+          },
+          "isReplay": true
+        }
+      },
+      {
+        "method": "session/update",
+        "update": {
+          "sessionUpdate": "agent_thought_chunk",
+          "content": {
+            "type": "text",
+            "text": "I will call the order_pizza tool and report its exact output.\n\nThe call was cancelled. The probe MCP server asked for input and was not answered. The result was `{\"action\":\"cancel\"}`. I will not assume the pizza was ordered."
+          }
+        },
+        "_meta": {
+          "totalTokens": 57264,
+          "requestTrimmedTokens": 0,
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-37",
+          "agentTimestampMs": 1794921991025,
+          "promptId": "ad041132-e28f-44e6-9447-51e7d9cb78ba",
+          "streamStartMs": 1794921986562,
+          "turnStartMs": 1794921966351,
+          "updateType": "AgentThoughtChunk",
+          "chunkId": 8,
+          "isReplay": true
+        }
+      },
+      {
+        "method": "session/update",
+        "update": {
+          "sessionUpdate": "agent_message_chunk",
+          "content": {
+            "type": "text",
+            "text": "**2026-11-17 21:26:23 CST**\n\n`probe__order_pizza` 没有返回披萨订单。调用被取消，工具结果原文是：\n\n```text\n[grok] MCP server \"probe\" asked the user for input while this call was running and it was cancelled without an answer. Do not assume the requested action was performed; tell the user and ask before retrying.\nelicitation result: {\"action\":\"cancel\"}\n```\n\n表单弹出后没有提交答案，所以没有披萨选项数据。要再调一次的话告诉我。"
+          }
+        },
+        "_meta": {
+          "totalTokens": 57264,
+          "requestTrimmedTokens": 0,
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-160",
+          "agentTimestampMs": 1794921991677,
+          "promptId": "ad041132-e28f-44e6-9447-51e7d9cb78ba",
+          "streamStartMs": 1794921986562,
+          "turnStartMs": 1794921966351,
+          "updateType": "AgentMessageChunk",
+          "chunkId": 131,
+          "isReplay": true
+        }
+      },
+      {
+        "method": "_x.ai/session/update",
+        "update": {
+          "sessionUpdate": "hook_execution",
+          "event_name": "stop",
+          "prompt_id": "ad041132-e28f-44e6-9447-51e7d9cb78ba",
+          "runs": [
+            {
+              "name": "plugin/claude-mem/hooks:stop[0].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 72
+              }
+            },
+            {
+              "name": "plugin/token-optimizer/hooks:stop[0].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 112
+              }
+            }
+          ]
+        },
+        "_meta": {
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-164",
+          "agentTimestampMs": 1794921991922,
+          "isReplay": true
+        }
+      },
+      {
+        "method": "_x.ai/session/update",
+        "update": {
+          "sessionUpdate": "turn_completed",
+          "prompt_id": "ad041132-e28f-44e6-9447-51e7d9cb78ba",
+          "stop_reason": "end_turn",
+          "usage": {
+            "inputTokens": 225473,
+            "outputTokens": 721,
+            "totalTokens": 226194,
+            "cachedReadTokens": 118144,
+            "cacheCreationTokens": 0,
+            "reasoningTokens": 516,
+            "modelCalls": 4,
+            "apiDurationMs": 21991,
+            "costUsdTicks": 5561120000,
+            "modelUsage": {
+              "grok-4.7-build-fast": {
+                "inputTokens": 225473,
+                "outputTokens": 721,
+                "totalTokens": 226194,
+                "cachedReadTokens": 118144,
+                "cacheCreationTokens": 0,
+                "reasoningTokens": 516,
+                "modelCalls": 4,
+                "apiDurationMs": 21991,
+                "costUsdTicks": 5561120000
+              }
+            },
+            "numTurns": 4
+          },
+          "elapsed_ms": 25602
+        },
+        "_meta": {
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-165",
+          "agentTimestampMs": 1794921991953,
+          "isReplay": true
+        }
+      },
+      {
+        "method": "_x.ai/session/update",
+        "update": {
+          "sessionUpdate": "hook_execution",
+          "event_name": "session_end",
+          "runs": [
+            {
+              "name": "plugin/claude-mem/hooks:session_end[0].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 45
+              }
+            },
+            {
+              "name": "plugin/token-optimizer/hooks:session_end[0].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 126
+              }
+            }
+          ]
+        },
+        "_meta": {
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-166",
+          "agentTimestampMs": 1794921992229,
+          "isReplay": true
+        }
+      },
+      {
+        "method": "_x.ai/session/update",
+        "update": {
+          "sessionUpdate": "hook_execution",
+          "event_name": "stop",
+          "runs": [
+            {
+              "name": "plugin/claude-mem/hooks:stop[0].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 44
+              }
+            },
+            {
+              "name": "plugin/token-optimizer/hooks:stop[0].hooks[0]",
+              "status": {
+                "status": "success",
+                "elapsed_ms": 127
+              }
+            }
+          ]
+        },
+        "_meta": {
+          "eventId": "01a1e9af-aa26-73a0-a3f6-ab2df6af6d7f-167",
+          "agentTimestampMs": 1794921992229,
+          "isReplay": true
+        }
+      }
+    ]
+  },
+  "copilot": {
+    "session": {
+      "sessionId": "a3961a4f-b298-4020-b248-0ea05291ef2a",
+      "cwd": "$CWD",
+      "title": "Nihao Session",
+      "updatedAt": "2026-11-17T11:43:59.652Z"
+    },
+    "replay": [
+      {
+        "method": "session/update",
+        "update": {
+          "sessionUpdate": "user_message_chunk",
+          "content": {
+            "type": "text",
+            "text": "USER hello"
+          }
+        }
+      },
+      {
+        "method": "session/update",
+        "update": {
+          "sessionUpdate": "agent_message_chunk",
+          "content": {
+            "type": "text",
+            "text": "Info: /tmp/ws/notes.md"
+          }
+        }
+      },
+      {
+        "method": "session/update",
+        "update": {
+          "sessionUpdate": "agent_message_chunk",
+          "content": {
+            "type": "text",
+            "text": "REPLY part one, "
+          },
+          "messageId": "beb5c264-2f5f-4333-a43f-76cf7cd19644"
+        }
+      },
+      {
+        "method": "session/update",
+        "update": {
+          "sessionUpdate": "agent_message_chunk",
+          "content": {
+            "type": "text",
+            "text": "part two."
+          },
+          "messageId": "beb5c264-2f5f-4333-a43f-76cf7cd19644"
+        }
+      },
+      {
+        "method": "session/update",
+        "update": {
+          "sessionUpdate": "user_message_chunk",
+          "content": {
+            "type": "text",
+            "text": "USER make a file"
+          }
+        }
+      },
+      {
+        "method": "session/update",
+        "update": {
+          "sessionUpdate": "tool_call",
+          "toolCallId": "call_0ad1fdd21dff41dda7ba1dba75fd9fc5",
+          "title": "Create rudder.txt",
+          "kind": "execute",
+          "status": "pending",
+          "rawInput": {
+            "command": "touch rudder.txt",
+            "description": "Create rudder.txt"
+          }
+        }
+      },
+      {
+        "method": "session/update",
+        "update": {
+          "sessionUpdate": "tool_call_update",
+          "toolCallId": "call_0ad1fdd21dff41dda7ba1dba75fd9fc5",
+          "status": "completed",
+          "content": [
+            {
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": "\n<shellId: 0 completed with exit code 0>"
+              }
+            }
+          ],
+          "rawOutput": {
+            "content": "\n<shellId: 0 completed with exit code 0>",
+            "contents": [
+              {
+                "type": "shell_exit",
+                "shellId": "0",
+                "exitCode": 0,
+                "cwd": "$CWD"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "method": "session/update",
+        "update": {
+          "sessionUpdate": "tool_call",
+          "toolCallId": "call_open",
+          "title": "Still running",
+          "kind": "execute",
+          "status": "in_progress",
+          "rawInput": {
+            "command": "sleep 100"
+          }
+        }
+      },
+      {
+        "method": "session/update",
+        "update": {
+          "sessionUpdate": "agent_message_chunk",
+          "content": {
+            "type": "text",
+            "text": "REPLY made it."
+          },
+          "messageId": "c0ffee00-2f5f-4333-a43f-76cf7cd19644"
+        }
+      }
+    ]
+  }
+}

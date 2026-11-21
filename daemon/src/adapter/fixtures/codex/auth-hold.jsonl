@@ -1,0 +1,14 @@
+{"expect":"initialize","result":{}}
+{"expect":"initialized"}
+{"sleep":1500}
+{"expect":"account/read","result":{"account":{"type":"chatgpt"},"requiresOpenaiAuth":true}}
+{"expect":"thread/start","result":{"thread":{"id":"thr-hold-a"}}}
+{"expect":"turn/start","result":{"turn":{"id":"turn-hold-a","status":"inProgress","error":null}}}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-hold-a","turn":{"id":"turn-hold-a","status":"completed","error":null}}}}
+{"expect":"thread/start","result":{"thread":{"id":"thr-hold-b"}}}
+{"expect":"turn/start","result":{"turn":{"id":"turn-hold-b","status":"inProgress","error":null}}}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-hold-b","turn":{"id":"turn-hold-b","status":"completed","error":null}}}}
+{"spawn":2}
+{"expect":"initialize","result":{}}
+{"expect":"initialized"}
+{"expect":"account/read","result":{"account":{"type":"chatgpt"},"requiresOpenaiAuth":true}}

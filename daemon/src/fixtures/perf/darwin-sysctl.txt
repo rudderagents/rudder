@@ -1,0 +1,2 @@
+kern.memorystatus_vm_pressure_level: 1
+vm.swapusage: total = 12288.00M  used = 11102.69M  free = 1185.31M  (encrypted)

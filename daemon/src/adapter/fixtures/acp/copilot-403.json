@@ -1,0 +1,14 @@
+{
+  "initialize": {
+    "protocolVersion": 1,
+    "agentCapabilities": { "loadSession": true, "sessionCapabilities": { "close": {}, "list": {} } },
+    "agentInfo": { "name": "Copilot", "title": "Copilot", "version": "1.0.92" },
+    "authMethods": [{ "id": "copilot-login", "name": "Log in with Copilot CLI" }]
+  },
+  "newError": {
+    "code": -32603,
+    "message": "403 \"unauthorized: not authorized to use this Copilot feature\\n\"",
+    "data": { "category": "permission_denied", "message": "403 \"unauthorized: not authorized to use this Copilot feature\\n\"", "status": 403 }
+  },
+  "turns": {}
+}

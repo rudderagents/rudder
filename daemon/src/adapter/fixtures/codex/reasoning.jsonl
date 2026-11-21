@@ -1,0 +1,16 @@
+{"expect":"initialize","result":{"userAgent":"rudder/0.163.0","codexHome":"/tmp/codex-home","platformFamily":"unix","platformOs":"macos"}}
+{"expect":"initialized"}
+{"expect":"thread/start","result":{"thread":{"id":"thr-reason","sessionId":"thr-reason","cwd":"/tmp/ws","status":{"type":"idle"},"turns":[]},"model":"gpt-6-luna","modelProvider":"openai","cwd":"/tmp/ws","approvalPolicy":"untrusted","approvalsReviewer":"user","sandbox":{"type":"workspaceWrite","writableRoots":[],"networkAccess":false,"excludeTmpdirEnvVar":false,"excludeSlashTmp":false},"reasoningEffort":"low"}}
+{"expect":"turn/start","result":{"turn":{"id":"turn-r1","rootTurnId":"turn-r1","items":[],"itemsView":"notLoaded","status":"inProgress","error":null}}}
+{"send":{"method":"turn/started","params":{"threadId":"thr-reason","turn":{"id":"turn-r1","rootTurnId":"turn-r1","items":[],"itemsView":"notLoaded","status":"inProgress","error":null}}}}
+{"send":{"method":"item/started","params":{"threadId":"thr-reason","turnId":"turn-r1","item":{"type":"reasoning","id":"rs_r1","summary":[],"content":[]},"startedAtMs":1}}}
+{"send":{"method":"item/reasoning/summaryPartAdded","params":{"threadId":"thr-reason","turnId":"turn-r1","itemId":"rs_r1","summaryIndex":0}}}
+{"send":{"method":"item/reasoning/summaryTextDelta","params":{"threadId":"thr-reason","turnId":"turn-r1","itemId":"rs_r1","delta":"**Calculating**\n\nI","summaryIndex":0}}}
+{"send":{"method":"item/reasoning/summaryTextDelta","params":{"threadId":"thr-reason","turnId":"turn-r1","itemId":"rs_r1","delta":" solve n mod 7.","summaryIndex":0}}}
+{"send":{"method":"item/reasoning/summaryPartAdded","params":{"threadId":"thr-reason","turnId":"turn-r1","itemId":"rs_r1","summaryIndex":1}}}
+{"send":{"method":"item/reasoning/summaryTextDelta","params":{"threadId":"thr-reason","turnId":"turn-r1","itemId":"rs_r1","delta":"Then n = 269.","summaryIndex":1}}}
+{"send":{"method":"item/completed","params":{"threadId":"thr-reason","turnId":"turn-r1","item":{"type":"reasoning","id":"rs_r1","summary":["**Calculating**\n\nI solve n mod 7.","Then n = 269."],"content":[]},"startedAtMs":1}}}
+{"send":{"method":"item/started","params":{"threadId":"thr-reason","turnId":"turn-r1","item":{"type":"agentMessage","id":"msg_r1","text":"","phase":"final_answer","memoryCitation":null,"delivery":null,"questions":null},"startedAtMs":1}}}
+{"send":{"method":"item/completed","params":{"threadId":"thr-reason","turnId":"turn-r1","item":{"type":"agentMessage","id":"msg_r1","text":"269","phase":"final_answer","memoryCitation":null,"delivery":null,"questions":null},"startedAtMs":1}}}
+{"send":{"method":"thread/tokenUsage/updated","params":{"threadId":"thr-reason","turnId":"turn-r1","tokenUsage":{"total":{"totalTokens":32368,"inputTokens":32291,"cachedInputTokens":7168,"cacheWriteInputTokens":0,"outputTokens":77,"reasoningOutputTokens":70},"last":{"totalTokens":32368,"inputTokens":32291,"cachedInputTokens":7168,"cacheWriteInputTokens":0,"outputTokens":77,"reasoningOutputTokens":70},"modelContextWindow":475000}}}}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-reason","turn":{"id":"turn-r1","rootTurnId":"turn-r1","items":[],"itemsView":"notLoaded","status":"completed","error":null}}}}

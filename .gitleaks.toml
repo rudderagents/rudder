@@ -1,0 +1,20 @@
+# Secret scan for this repository (CI runs it on every push and pull request).
+title = "rudder"
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Recorded agent sessions and test vectors"
+# Claude's message ids in recorded sessions look like API keys to the generic rule.
+regexTarget = "line"
+regexes = ['''"api_message_id":\s*"[^"]*"''']
+paths = [
+  '''daemon/src/adapter/redact\.test\.ts''',        # fake keys for the redaction tests
+  '''daemon/src/relay/fixtures/pass-vector\.json''', # Ed25519 test vector, never used by any live relay
+]
+stopwords = [
+  "0123456789abcdef0123456789abcdef",
+  "00112233445566778899aabbccddeeff",
+  "dGhlIHNhbXBsZSBub25jZQ==",                       # RFC 6455 sample Sec-WebSocket-Key
+  "0f1e279fcc7d6fcadb829ca04042b0c0a897d000b82d1e4c717cb2c22cecc0aa", # push test vector derived from key 00..1f
+]

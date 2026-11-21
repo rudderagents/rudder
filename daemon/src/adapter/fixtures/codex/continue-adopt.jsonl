@@ -1,0 +1,12 @@
+{"expect":"initialize","result":{"userAgent":"rudder/0.163.0","codexHome":"/tmp/codex-home","platformFamily":"unix","platformOs":"macos"}}
+{"expect":"initialized"}
+{"expect":"thread/start","result":{"thread":{"id":"thr-cont","sessionId":"thr-cont","cwd":"/tmp/ws","status":{"type":"idle"},"turns":[]},"model":"gpt-6-luna","modelProvider":"openai","cwd":"/tmp/ws","approvalPolicy":"untrusted","approvalsReviewer":"user","sandbox":{"type":"workspaceWrite","writableRoots":[],"networkAccess":false,"excludeTmpdirEnvVar":false,"excludeSlashTmp":false},"reasoningEffort":"low"}}
+{"expect": "turn/start", "result": {"turn": {"id": "turn-c1", "rootTurnId": "turn-c1", "items": [], "itemsView": "notLoaded", "status": "inProgress", "error": null}}}
+{"send": {"method": "thread/status/changed", "params": {"threadId": "thr-cont", "status": {"type": "active", "activeFlags": []}}}}
+{"send": {"method": "turn/started", "params": {"threadId": "thr-cont", "turn": {"id": "turn-c1", "rootTurnId": "turn-c1", "items": [], "itemsView": "notLoaded", "status": "inProgress", "error": null}}}}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-cont", "turnId": "turn-c1", "item": {"type": "agentMessage", "id": "msg_c1", "text": "first", "phase": "final_answer", "memoryCitation": null, "delivery": null, "questions": null}, "startedAtMs": 1}}}
+{"send": {"method": "turn/completed", "params": {"threadId": "thr-cont", "turn": {"id": "turn-c1", "rootTurnId": "turn-c1", "items": [], "itemsView": "full", "status": "completed", "error": null}}}}
+{"send": {"method": "turn/started", "params": {"threadId": "thr-cont", "turn": {"id": "turn-c2", "rootTurnId": "turn-c2", "items": [], "itemsView": "notLoaded", "status": "inProgress", "error": null}}}}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-cont", "turnId": "turn-c2", "item": {"type": "agentMessage", "id": "msg_c2", "text": "second", "phase": "final_answer", "memoryCitation": null, "delivery": null, "questions": null}, "startedAtMs": 1}}}
+{"send": {"method": "thread/status/changed", "params": {"threadId": "thr-cont", "status": {"type": "idle"}}}}
+{"send": {"method": "turn/completed", "params": {"threadId": "thr-cont", "turn": {"id": "turn-c2", "rootTurnId": "turn-c2", "items": [], "itemsView": "full", "status": "completed", "error": null}}}}

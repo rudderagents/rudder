@@ -1,0 +1,11 @@
+{"expect":"initialize","result":{}}
+{"expect":"initialized"}
+{"expect":"thread/start","result":{"thread":{"id":"thr-rv"}}}
+{"expect":"turn/start","result":{"turn":{"id":"turn-r1","status":"inProgress","error":null}}}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-rv","turn":{"id":"turn-r1","status":"completed","error":null}}}}
+{"expect":"thread/revert","result":{"thread":{"id":"thr-rv","turns":[]}}}
+{"expect":"thread/resume","result":{"thread":{"id":"thr-rv"}}}
+{"expect":"turn/start","result":{"turn":{"id":"turn-r2","status":"inProgress","error":null}}}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-rv","turn":{"id":"turn-r2","status":"completed","error":null}}}}
+{"expect":"thread/resume","result":{"thread":{"id":"thr-rv"}}}
+{"expect":"thread/revert","error":{"code":-32600,"message":"turn not found: turn-gone"}}

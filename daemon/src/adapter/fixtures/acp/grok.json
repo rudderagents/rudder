@@ -1,0 +1,228 @@
+{
+  "initialize": {
+    "protocolVersion": 1,
+    "agentCapabilities": {
+      "loadSession": true,
+      "promptCapabilities": { "image": false, "audio": false, "embeddedContext": true },
+      "mcpCapabilities": { "http": true, "sse": true },
+      "sessionCapabilities": { "list": {}, "resume": {}, "close": {} },
+      "auth": {}
+    },
+    "authMethods": [
+      { "id": "cached_token", "name": "cached_token", "description": "Cached token from ~/.grok/auth.json" },
+      { "id": "grok.com", "name": "Grok", "description": "Sign in with Grok" }
+    ],
+    "_meta": {
+      "agentVersion": "1.0.62",
+      "defaultAuthMethodId": "cached_token",
+      "modelState": {
+        "currentModelId": "grok-4.7",
+        "availableModels": [
+          { "modelId": "grok-4.7", "name": "Grok 4.7", "_meta": { "totalContextTokens": 256000, "supportsReasoningEffort": true, "reasoningEfforts": [
+            { "id": "xhigh", "value": "xhigh", "label": "Extra High", "default": false },
+            { "id": "high", "value": "high", "label": "High", "default": true },
+            { "id": "medium", "value": "medium", "label": "Medium", "default": false },
+            { "id": "low", "value": "low", "label": "Low", "default": false } ], "contextWindows": [256000, 500000] } },
+          { "modelId": "grok-4.5", "name": "Grok 4.5", "_meta": { "totalContextTokens": 256000, "supportsReasoningEffort": true, "reasoningEfforts": [
+            { "id": "high", "value": "high", "label": "High", "default": true },
+            { "id": "medium", "value": "medium", "label": "Medium", "default": false },
+            { "id": "low", "value": "low", "label": "Low", "default": false } ], "contextWindows": [256000, 500000] } }
+        ]
+      }
+    }
+  },
+  "newSession": {
+    "configOptions": [
+      { "id": "model", "name": "Model", "category": "model", "type": "select", "currentValue": "grok-4.7",
+        "options": [{ "value": "grok-4.7", "name": "Grok 4.7" }, { "value": "grok-4.5", "name": "Grok 4.5" }] },
+      { "id": "reasoning_effort", "name": "Reasoning Effort", "category": "thought_level", "type": "select", "currentValue": "high",
+        "options": [{ "value": "xhigh", "name": "Extra High" }, { "value": "high", "name": "High" }, { "value": "medium", "name": "Medium" }, { "value": "low", "name": "Low" }] }
+    ],
+    "_meta": { "isGitRepo": false }
+  },
+  "resumeResult": {},
+  "turns": {
+    "think": [
+      { "update": { "sessionUpdate": "available_commands_update", "availableCommands": [{ "name": "compact", "description": "Summarize the conversation" }] } },
+      { "respond": { "id": "skills-reload", "result": { "result": { "reloaded": 1 } } } },
+      { "notify": { "method": "_x.ai/session_notification", "params": { "sessionId": "sess-1", "kind": "pending_interaction" } } },
+      { "update": { "sessionUpdate": "session_info_update", "title": "17 times 23" } },
+      { "update": { "sessionUpdate": "some_future_update", "value": 1 } },
+      { "update": { "sessionUpdate": "agent_thought_chunk", "content": { "type": "text", "text": "I will calculate 17 " } } },
+      { "update": { "sessionUpdate": "agent_thought_chunk", "content": { "type": "text", "text": "times 23." } } },
+      { "update": { "sessionUpdate": "agent_message_chunk", "content": { "type": "text", "text": "39" } } },
+      { "update": { "sessionUpdate": "agent_message_chunk", "content": { "type": "text", "text": "1" } } },
+      { "result": { "stopReason": "end_turn", "_meta": { "totalTokens": 60329, "modelId": "grok-4.7", "usage": {
+        "inputTokens": 60221, "outputTokens": 99, "totalTokens": 60320, "cachedReadTokens": 2176, "cacheCreationTokens": 0,
+        "reasoningTokens": 98, "modelCalls": 1, "costUsdTicks": 1173540000 } } } }
+    ],
+    "empty thought": [
+      { "update": { "sessionUpdate": "agent_thought_chunk", "content": { "type": "text", "text": "" } } },
+      { "update": { "sessionUpdate": "agent_message_chunk", "content": { "type": "text", "text": "ok" } } },
+      { "result": { "stopReason": "end_turn" } }
+    ],
+    "read": [
+      { "update": { "sessionUpdate": "agent_message_chunk", "content": { "type": "text", "text": "I'll read notes.txt." } } },
+      { "update": { "sessionUpdate": "tool_call", "toolCallId": "call-r-0", "title": "read_file", "rawInput": { "target_file": "/tmp/ws/notes.txt" },
+        "_meta": { "x.ai/tool": { "version": 1, "name": "read_file", "kind": "read", "read_only": true } } } },
+      { "update": { "sessionUpdate": "tool_call_update", "toolCallId": "call-r-0", "kind": "read", "title": "Read `/tmp/ws/notes.txt`",
+        "locations": [{ "path": "/tmp/ws/notes.txt" }], "rawInput": { "variant": "ReadFile", "target_file": "/tmp/ws/notes.txt" } } },
+      { "update": { "sessionUpdate": "tool_call_update", "toolCallId": "call-r-0", "status": "completed",
+        "content": [{ "type": "content", "content": { "type": "text", "text": "1→The secret code is MAPLE-42.\n" } }],
+        "rawOutput": { "type": "ReadFile", "FileContent": { "content": "1→The secret code is MAPLE-42.\n", "total_lines": 1 } } } },
+      { "update": { "sessionUpdate": "agent_thought_chunk", "content": { "type": "text", "text": "Found it." } } },
+      { "update": { "sessionUpdate": "agent_message_chunk", "content": { "type": "text", "text": "The code is MAPLE-42." } } },
+      { "result": { "stopReason": "end_turn" } }
+    ],
+    "bash": [
+      { "update": { "sessionUpdate": "tool_call", "toolCallId": "call-b-0", "title": "run_terminal_command", "rawInput": { "command": "echo hi", "description": "Print hi" },
+        "_meta": { "x.ai/tool": { "version": 1, "name": "run_terminal_command", "kind": "execute", "read_only": false } } } },
+      { "update": { "sessionUpdate": "tool_call_update", "toolCallId": "call-b-0", "kind": "execute", "title": "Execute `echo hi`",
+        "content": [{ "type": "content", "content": { "type": "text", "text": "Print hi" } }], "locations": [],
+        "rawInput": { "variant": "Bash", "command": "echo hi", "description": "Print hi", "is_background": false } } },
+      { "update": { "sessionUpdate": "tool_call_update", "toolCallId": "call-b-0", "status": "in_progress",
+        "content": [{ "type": "content", "content": { "type": "text", "text": "" } }], "rawOutput": { "type": "Bash", "output": [], "exit_code": 0 } } },
+      { "update": { "sessionUpdate": "tool_call_update", "toolCallId": "call-b-0", "status": "completed",
+        "content": [{ "type": "content", "content": { "type": "text", "text": "hi\n" } }],
+        "rawOutput": { "type": "Bash", "output": [104, 105, 10], "output_for_prompt": "exit: 0\nhi\n", "exit_code": 0, "command": "echo hi" } } },
+      { "update": { "sessionUpdate": "tool_call", "toolCallId": "call-b-1", "title": "run_terminal_command", "rawInput": { "command": "false" },
+        "_meta": { "x.ai/tool": { "version": 1, "name": "run_terminal_command", "kind": "execute", "read_only": false } } } },
+      { "update": { "sessionUpdate": "tool_call_update", "toolCallId": "call-b-1", "kind": "execute", "status": "failed",
+        "content": [{ "type": "content", "content": { "type": "text", "text": "" } }], "rawOutput": { "type": "Bash", "output": [], "exit_code": 1 } } },
+      { "result": { "stopReason": "end_turn" } }
+    ],
+    "write": [
+      { "update": { "sessionUpdate": "tool_call", "toolCallId": "call-w-0", "title": "write", "rawInput": { "file_path": "/tmp/ws/out.txt", "content": "ok\n" } } },
+      { "update": { "sessionUpdate": "tool_call_update", "toolCallId": "call-w-0", "kind": "edit", "title": "Write `/tmp/ws/out.txt`",
+        "content": [{ "type": "diff", "path": "/tmp/ws/out.txt", "oldText": "", "newText": "ok\n" }], "locations": [{ "path": "/tmp/ws/out.txt" }] } },
+      { "update": { "sessionUpdate": "tool_call_update", "toolCallId": "call-w-0", "status": "completed",
+        "content": [{ "type": "diff", "path": "/tmp/ws/out.txt", "oldText": null, "newText": "ok\n" }] } },
+      { "result": { "stopReason": "end_turn" } }
+    ],
+    "plan": [
+      { "update": { "sessionUpdate": "tool_call", "toolCallId": "call-p-0", "title": "todo_write", "rawInput": { "todos": [] } } },
+      { "update": { "sessionUpdate": "tool_call_update", "toolCallId": "call-p-0", "kind": "think", "title": "Updating plan", "status": "completed" } },
+      { "update": { "sessionUpdate": "plan", "entries": [
+        { "content": "Read notes.txt", "priority": "medium", "status": "in_progress" },
+        { "content": "Count lines", "priority": "medium", "status": "pending" } ] } },
+      { "update": { "sessionUpdate": "plan", "entries": [
+        { "content": "Read notes.txt", "priority": "medium", "status": "completed" },
+        { "content": "Count lines", "priority": "medium", "status": "completed" } ] } },
+      { "result": { "stopReason": "end_turn" } }
+    ],
+    "perm": [
+      { "update": { "sessionUpdate": "tool_call", "toolCallId": "call-x-0", "title": "run_terminal_command", "rawInput": { "command": "printf hi > a.txt" },
+        "_meta": { "x.ai/tool": { "version": 1, "name": "run_terminal_command", "kind": "execute", "read_only": false } } } },
+      { "update": { "sessionUpdate": "tool_call_update", "toolCallId": "call-x-0", "kind": "execute", "title": "Execute `printf hi > a.txt`",
+        "rawInput": { "variant": "Bash", "command": "printf hi > a.txt", "is_background": false } } },
+      { "request": { "method": "session/request_permission", "params": {
+        "toolCall": { "toolCallId": "call-x-0", "kind": "execute", "title": "Execute `printf hi > a.txt`",
+          "rawInput": { "variant": "Bash", "command": "printf hi > a.txt", "is_background": false } },
+        "options": [
+          { "optionId": "always-allow", "name": "Yes, and don't ask again for bash commands", "kind": "allow_always" },
+          { "optionId": "allow-once", "name": "Yes, proceed", "kind": "allow_once" },
+          { "optionId": "reject-once", "name": "No, and tell Grok what to do differently", "kind": "reject_once" },
+          { "optionId": "reject-always", "name": "No, and don't ask again for this command", "kind": "reject_always" } ] } } },
+      { "update": { "sessionUpdate": "tool_call_update", "toolCallId": "call-x-0", "status": "completed",
+        "content": [{ "type": "content", "content": { "type": "text", "text": "" } }], "rawOutput": { "type": "Bash", "output": [], "exit_code": 0 } } },
+      { "result": { "stopReason": "end_turn" } }
+    ],
+    "perm reject": [
+      { "update": { "sessionUpdate": "tool_call", "toolCallId": "call-x-1", "title": "run_terminal_command", "rawInput": { "command": "printf hi > a.txt" },
+        "_meta": { "x.ai/tool": { "version": 1, "name": "run_terminal_command", "kind": "execute", "read_only": false } } } },
+      { "request": { "method": "session/request_permission", "params": {
+        "toolCall": { "toolCallId": "call-x-1", "kind": "execute", "title": "Execute `printf hi > a.txt`", "rawInput": { "variant": "Bash", "command": "printf hi > a.txt" } },
+        "options": [
+          { "optionId": "always-allow", "name": "Yes, and don't ask again for bash commands", "kind": "allow_always" },
+          { "optionId": "allow-once", "name": "Yes, proceed", "kind": "allow_once" },
+          { "optionId": "reject-once", "name": "No, and tell Grok what to do differently", "kind": "reject_once" },
+          { "optionId": "reject-always", "name": "No, and don't ask again for this command", "kind": "reject_always" } ] } } },
+      { "update": { "sessionUpdate": "tool_call_update", "toolCallId": "call-x-1", "status": "failed",
+        "content": [{ "type": "content", "content": { "type": "text", "text": "User rejected the execution for tool `run_terminal_command`" } }],
+        "_meta": { "toolNotRun": "rejected" } } },
+      { "result": { "stopReason": "cancelled", "_meta": { "cancellationCategory": "PermissionRejected" } } }
+    ],
+    "ask": [
+      { "update": { "sessionUpdate": "tool_call", "toolCallId": "call-q-0", "title": "ask_user_question",
+        "_meta": { "x.ai/tool": { "version": 1, "name": "ask_user_question", "kind": "ask_user", "read_only": true } } } },
+      { "update": { "sessionUpdate": "tool_call_update", "toolCallId": "call-q-0", "kind": "other", "title": "Ask: Do you prefer tea or coffee?" } },
+      { "request": { "method": "_x.ai/ask_user_question", "params": { "toolCallId": "call-q-0", "mode": "default", "questions": [
+        { "question": "Do you prefer tea or coffee?", "options": [
+          { "label": "Tea (Recommended)", "description": "You prefer tea." },
+          { "label": "Coffee", "description": "You prefer coffee." } ], "multiSelect": null } ] } } },
+      { "update": { "sessionUpdate": "tool_call_update", "toolCallId": "call-q-0", "status": "completed",
+        "content": [{ "type": "content", "content": { "type": "text", "text": "User has answered your questions." } }] } },
+      { "update": { "sessionUpdate": "agent_message_chunk", "content": { "type": "text", "text": "Noted." } } },
+      { "result": { "stopReason": "end_turn" } }
+    ],
+    "exit plan": [
+      { "request": { "method": "_x.ai/exit_plan_mode", "params": { "toolCallId": "call-e-0",
+        "planContent": "# Append a line\n\n1. Read notes.txt\n2. Append the line\n" } } },
+      { "update": { "sessionUpdate": "current_mode_update", "currentModeId": "default" } },
+      { "result": { "stopReason": "end_turn" } }
+    ],
+    "long": [
+      { "update": { "sessionUpdate": "agent_thought_chunk", "content": { "type": "text", "text": "I will write a long essay" } } },
+      { "update": { "sessionUpdate": "tool_call", "toolCallId": "call-l-0", "title": "run_terminal_command", "kind": "execute", "status": "in_progress", "rawInput": { "command": "sleep 100" } } },
+      { "waitCancel": true },
+      { "update": { "sessionUpdate": "agent_thought_chunk", "content": { "type": "text", "text": " about ships." } } },
+      { "result": { "stopReason": "cancelled", "_meta": { "cancellationCategory": "MidTurnAbort" } } }
+    ],
+    "hang": [
+      { "update": { "sessionUpdate": "agent_message_chunk", "content": { "type": "text", "text": "thinking" } } },
+      { "waitCancel": true },
+      { "sleep": 60000 }
+    ],
+    "fs": [
+      { "request": { "method": "fs/read_text_file", "params": { "path": "/tmp/ws/out.txt" } } },
+      { "request": { "method": "terminal/create", "params": { "command": "ls" } } },
+      { "update": { "sessionUpdate": "agent_message_chunk", "content": { "type": "text", "text": "continued" } } },
+      { "result": { "stopReason": "end_turn" } }
+    ],
+    "slow cancel": [
+      { "update": { "sessionUpdate": "agent_message_chunk", "content": { "type": "text", "text": "thinking" } } },
+      { "waitCancel": true },
+      { "sleep": 450 },
+      { "update": { "sessionUpdate": "agent_message_chunk", "content": { "type": "text", "text": "late chunk" } } },
+      { "result": { "stopReason": "cancelled" } }
+    ],
+    "pause": [
+      { "sleep": 400 },
+      { "update": { "sessionUpdate": "agent_message_chunk", "content": { "type": "text", "text": "after pause" } } },
+      { "result": { "stopReason": "end_turn" } }
+    ],
+    "refuse": [
+      { "update": { "sessionUpdate": "agent_message_chunk", "content": { "type": "text", "text": "I can't help with that." } } },
+      { "result": { "stopReason": "refusal" } }
+    ],
+    "long reply": [
+      { "update": { "sessionUpdate": "agent_message_chunk", "content": { "type": "text", "text": "Part one" } } },
+      { "result": { "stopReason": "max_tokens" } }
+    ],
+    "compact": [
+      { "notify": { "method": "_x.ai/session/update", "params": { "sessionId": "sess-1", "update": { "sessionUpdate": "auto_compact_started", "tokens_used": 206000, "context_window": 256000 } }, "_meta": { "agentTimestampMs": 123000 } } },
+      { "notify": { "method": "_x.ai/session/update", "params": { "sessionId": "sess-1", "update": { "sessionUpdate": "auto_compact_completed", "tokens_before": 206000, "tokens_after": 69000 } } } },
+      { "result": { "stopReason": "end_turn" } }
+    ],
+    "crash": [
+      { "update": { "sessionUpdate": "tool_call", "toolCallId": "call-c-0", "title": "read_file", "kind": "read", "status": "pending" } },
+      { "exit": 3 }
+    ],
+    "busy": [
+      { "update": { "sessionUpdate": "agent_message_chunk", "content": { "type": "text", "text": "working" } } },
+      { "sleep": 1200 },
+      { "update": { "sessionUpdate": "agent_message_chunk", "content": { "type": "text", "text": " done" } } },
+      { "result": { "stopReason": "end_turn" } }
+    ],
+    "mcp-elicit": [
+      { "request":  { "method":  "_x.ai/mcp/elicit", "params":  { "toolCallId":  "mcp-elicit-1", "serverName":  "probe", "message":  "How do you want your pizza?", "mode":  "form", "requestedSchema":  { "type":  "object", "properties":  { "toppings":  { "type":  "array", "title":  "Toppings", "items":  { "type":  "string", "enum":  ["cheese", "mushroom", "olive", "pepper"] } }, "size":  { "type":  "string", "title":  "Size", "oneOf":  [{ "const":  "s", "title":  "Small" }, { "const":  "l", "title":  "Large"  }] } }, "required":  ["toppings", "size"] } } } },
+      { "update":  { "sessionUpdate":  "agent_message_chunk", "content":  { "type":  "text", "text":  "done"  } }},
+      { "result":  { "stopReason":  "end_turn"  } }
+    ],
+    "mcp-elicit-odd": [
+      { "request":  { "method":  "_x.ai/mcp/elicit", "params":  { "toolCallId":  "mcp-elicit-1", "serverName":  "probe", "message":  "How do you want your pizza?", "mode":  "form", "requestedSchema":  { "type":  "object", "properties":  { "address":  { "type":  "object"  } } } } } },
+      { "update":  { "sessionUpdate":  "agent_message_chunk", "content":  { "type":  "text", "text":  "done"  } }},
+      { "result":  { "stopReason":  "end_turn"  } }
+    ]
+  }
+}

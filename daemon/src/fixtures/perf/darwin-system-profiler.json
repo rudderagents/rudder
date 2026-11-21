@@ -1,0 +1,10 @@
+{
+  "SPHardwareDataType" : [
+    {
+      "_name" : "hardware_overview",
+      "machine_name" : "Mac Studio",
+      "machine_model" : "Mac15,14",
+      "chip_type" : "Apple M5 Max"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+{"expect": "initialize", "result": {"userAgent": "rudder/0.163.0", "codexHome": "/tmp/codex-home", "platformFamily": "unix", "platformOs": "macos"}}
+{"expect": "initialized"}
+{"expect": "skills/list", "result": {"data": [{"cwd": "/tmp/ws", "skills": [{"name": "superpowers:brainstorming", "description": "Brainstorm", "enabled": true, "scope": "user", "pluginId": "superpowers@market"}, {"name": "hidden", "description": "Disabled", "enabled": false, "scope": "user"}, {"name": "local", "description": "Project", "enabled": true, "scope": "repo"}], "errors": []}]}}

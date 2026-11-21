@@ -1,0 +1,878 @@
+{
+ "initialize": {
+  "protocolVersion": 1,
+  "agentCapabilities": {
+   "loadSession": true,
+   "promptCapabilities": {
+    "image": false
+   }
+  },
+  "authMethods": [
+   {
+    "id": "cached_token",
+    "name": "cached_token"
+   }
+  ]
+ },
+ "newSession": {
+  "configOptions": [],
+  "_meta": {
+   "isGitRepo": false
+  }
+ },
+ "turns": {
+  "sub": [
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "派出子代理"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call",
+     "toolCallId": "call-sub",
+     "title": "spawn_subagent",
+     "rawInput": {
+      "description": "Review perf hot paths"
+     },
+     "_meta": {
+      "x.ai/tool": {
+       "name": "spawn_subagent",
+       "kind": "other"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "subagent_spawned",
+       "subagent_id": "01a1e524-9515-7702-b598-5f633b9f0a7c",
+       "child_session_id": "01a1e524-9515-7702-b598-5f633b9f0a7c",
+       "parent_session_id": "sess-1",
+       "subagent_type": "general-purpose",
+       "description": "Review perf hot paths"
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call_update",
+     "toolCallId": "call-sub",
+     "status": "completed",
+     "content": [
+      {
+       "type": "content",
+       "content": {
+        "type": "text",
+        "text": "Subagent started in background.\nsubagent_id: 01a1e524-9515-7702-b598-5f633b9f0a7c\ndescription: Review perf hot paths\n"
+       }
+      }
+     ],
+     "rawOutput": {
+      "type": "Text",
+      "text": "Subagent started in background.\nsubagent_id: 01a1e524-9515-7702-b598-5f633b9f0a7c\ndescription: Review perf hot paths\n"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "result": {
+     "stopReason": "end_turn"
+    },
+    "continue": true
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "subagent_finished",
+       "subagent_id": "01a1e524-9515-7702-b598-5f633b9f0a7c",
+       "child_session_id": "01a1e524-9515-7702-b598-5f633b9f0a7c",
+       "status": "completed",
+       "will_wake": true,
+       "output": "子代理结论 ALPHA"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "agent_message_chunk",
+       "content": {
+        "type": "text",
+        "text": "根据子代理：ALPHA"
+       }
+      },
+      "_meta": {
+       "promptId": "subagent-completed-01a1e524-9515-7702-b598-5f633b9f0a7c",
+       "eventId": "sess-1-90",
+       "chunkId": 1
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   }
+  ],
+  "subwait": [
+   {
+    "update": {
+     "sessionUpdate": "tool_call",
+     "toolCallId": "call-w",
+     "title": "spawn_subagent",
+     "rawInput": {
+      "description": "Locate files"
+     },
+     "_meta": {
+      "x.ai/tool": {
+       "name": "spawn_subagent",
+       "kind": "other"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "subagent_spawned",
+       "subagent_id": "01a1e525-3b24-7d33-abc6-3f9da1b30a21",
+       "child_session_id": "01a1e525-3b24-7d33-abc6-3f9da1b30a21",
+       "parent_session_id": "sess-1",
+       "subagent_type": "general-purpose",
+       "description": "Locate files"
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call_update",
+     "toolCallId": "call-w",
+     "status": "completed",
+     "content": [
+      {
+       "type": "content",
+       "content": {
+        "type": "text",
+        "text": "Subagent started in background.\nsubagent_id: 01a1e525-3b24-7d33-abc6-3f9da1b30a21\ndescription: Locate files\n"
+       }
+      }
+     ],
+     "rawOutput": {
+      "type": "Text",
+      "text": "Subagent started in background.\nsubagent_id: 01a1e525-3b24-7d33-abc6-3f9da1b30a21\ndescription: Locate files\n"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call",
+     "toolCallId": "call-get",
+     "title": "get_command_or_subagent_output",
+     "_meta": {
+      "x.ai/tool": {
+       "name": "get_command_or_subagent_output",
+       "kind": "other"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "subagent_finished",
+       "subagent_id": "01a1e525-3b24-7d33-abc6-3f9da1b30a21",
+       "child_session_id": "01a1e525-3b24-7d33-abc6-3f9da1b30a21",
+       "status": "completed",
+       "will_wake": false,
+       "output": "FOUND three files"
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call_update",
+     "toolCallId": "call-get",
+     "status": "completed",
+     "rawOutput": {
+      "type": "TaskOutput",
+      "Result": {
+       "task_id": "01a1e525-3b24-7d33-abc6-3f9da1b30a21",
+       "command": "[subagent:general-purpose] Locate files",
+       "status": "completed",
+       "exit_code": null,
+       "output": "FOUND three files"
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call",
+     "toolCallId": "call-multi",
+     "title": "multi-wait (wait_all)",
+     "_meta": {
+      "x.ai/tool": {
+       "name": "get_command_or_subagent_output",
+       "kind": "other"
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call_update",
+     "toolCallId": "call-multi",
+     "status": "completed",
+     "rawOutput": {
+      "type": "TaskOutput",
+      "MultiResult": {
+       "mode": "wait_all",
+       "results": [
+        {
+         "task_id": "t1",
+         "command": "echo ONE",
+         "status": "completed",
+         "exit_code": 0,
+         "output": "ONE\n"
+        },
+        {
+         "task_id": "t2",
+         "command": "echo TWO\necho more",
+         "status": "completed",
+         "exit_code": 0,
+         "output": "TWO\n"
+        }
+       ]
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "都找到了"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "result": {
+     "stopReason": "end_turn"
+    }
+   }
+  ],
+  "subcancel": [
+   {
+    "update": {
+     "sessionUpdate": "tool_call",
+     "toolCallId": "call-c",
+     "title": "spawn_subagent",
+     "rawInput": {
+      "description": "Long job"
+     },
+     "_meta": {
+      "x.ai/tool": {
+       "name": "spawn_subagent",
+       "kind": "other"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "subagent_spawned",
+       "subagent_id": "01a1e525-3b24-7d33-abc6-3f9da1b30a21",
+       "child_session_id": "01a1e525-3b24-7d33-abc6-3f9da1b30a21",
+       "parent_session_id": "sess-1",
+       "subagent_type": "general-purpose",
+       "description": "Long job"
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call_update",
+     "toolCallId": "call-c",
+     "status": "completed",
+     "content": [
+      {
+       "type": "content",
+       "content": {
+        "type": "text",
+        "text": "Subagent started in background.\nsubagent_id: 01a1e525-3b24-7d33-abc6-3f9da1b30a21\ndescription: Long job\n"
+       }
+      }
+     ],
+     "rawOutput": {
+      "type": "Text",
+      "text": "Subagent started in background.\nsubagent_id: 01a1e525-3b24-7d33-abc6-3f9da1b30a21\ndescription: Long job\n"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "result": {
+     "stopReason": "end_turn"
+    },
+    "continue": true
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "subagent_finished",
+       "subagent_id": "01a1e525-3b24-7d33-abc6-3f9da1b30a21",
+       "child_session_id": "01a1e525-3b24-7d33-abc6-3f9da1b30a21",
+       "status": "cancelled",
+       "will_wake": false,
+       "output": ""
+      }
+     }
+    }
+   }
+  ],
+  "cmdsub": [
+   {
+    "update": {
+     "sessionUpdate": "tool_call",
+     "toolCallId": "call-bg",
+     "title": "run_terminal_command",
+     "rawInput": {
+      "command": "sleep 1 && echo A"
+     },
+     "_meta": {
+      "x.ai/tool": {
+       "name": "run_terminal_command",
+       "kind": "execute"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/task_backgrounded",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "task_backgrounded",
+       "tool_call_id": "call-bg",
+       "task_id": "a2eb8f22-bb85-4674-991f-d877982ceb46",
+       "command": "sleep 1 && echo A"
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call",
+     "toolCallId": "call-c",
+     "title": "spawn_subagent",
+     "rawInput": {
+      "description": "Long job"
+     },
+     "_meta": {
+      "x.ai/tool": {
+       "name": "spawn_subagent",
+       "kind": "other"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "subagent_spawned",
+       "subagent_id": "01a1e525-3b24-7d33-abc6-3f9da1b30a21",
+       "child_session_id": "01a1e525-3b24-7d33-abc6-3f9da1b30a21",
+       "parent_session_id": "sess-1",
+       "subagent_type": "general-purpose",
+       "description": "Long job"
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call_update",
+     "toolCallId": "call-c",
+     "status": "completed",
+     "content": [
+      {
+       "type": "content",
+       "content": {
+        "type": "text",
+        "text": "Subagent started in background.\nsubagent_id: 01a1e525-3b24-7d33-abc6-3f9da1b30a21\ndescription: Long job\n"
+       }
+      }
+     ],
+     "rawOutput": {
+      "type": "Text",
+      "text": "Subagent started in background.\nsubagent_id: 01a1e525-3b24-7d33-abc6-3f9da1b30a21\ndescription: Long job\n"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "result": {
+     "stopReason": "end_turn"
+    },
+    "continue": true
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "notify": {
+     "method": "_x.ai/task_completed",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "task_completed",
+       "task_snapshot": {
+        "task_id": "a2eb8f22-bb85-4674-991f-d877982ceb46",
+        "exit_code": 0
+       }
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "agent_message_chunk",
+       "content": {
+        "type": "text",
+        "text": "命令 A 跑完了"
+       }
+      },
+      "_meta": {
+       "promptId": "task-completed-a2eb8f22-bb85-4674-991f-d877982ceb46",
+       "eventId": "sess-1-w1",
+       "chunkId": 1
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "subagent_finished",
+       "subagent_id": "01a1e525-3b24-7d33-abc6-3f9da1b30a21",
+       "status": "completed",
+       "will_wake": false,
+       "output": "B done"
+      }
+     }
+    }
+   }
+  ],
+  "foreign": [
+   {
+    "update": {
+     "sessionUpdate": "tool_call",
+     "toolCallId": "call-bg",
+     "title": "run_terminal_command",
+     "rawInput": {
+      "command": "sleep 1 && echo A"
+     },
+     "_meta": {
+      "x.ai/tool": {
+       "name": "run_terminal_command",
+       "kind": "execute"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/task_backgrounded",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "task_backgrounded",
+       "tool_call_id": "call-bg",
+       "task_id": "a2eb8f22-bb85-4674-991f-d877982ceb46",
+       "command": "sleep 1 && echo A"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "result": {
+     "stopReason": "end_turn"
+    },
+    "continue": true
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "notify": {
+     "method": "_x.ai/task_completed",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "task_completed",
+       "task_snapshot": {
+        "task_id": "a2eb8f22-bb85-4674-991f-d877982ceb46",
+        "exit_code": 0
+       }
+      }
+     }
+    }
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "subagent_finished",
+       "subagent_id": "01a1ffff-0000-7000-8000-000000000000",
+       "status": "completed",
+       "will_wake": false,
+       "output": "not mine"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "agent_message_chunk",
+       "content": {
+        "type": "text",
+        "text": "命令 A 的结果"
+       }
+      },
+      "_meta": {
+       "promptId": "task-completed-a2eb8f22-bb85-4674-991f-d877982ceb46",
+       "eventId": "sess-1-w2",
+       "chunkId": 1
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   }
+  ],
+  "orphan": [
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "先结束这一轮"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "result": {
+     "stopReason": "end_turn"
+    },
+    "continue": true
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "  "
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "agent_message_chunk",
+       "content": {
+        "type": "text",
+        "text": "没人登记的子代理"
+       }
+      },
+      "_meta": {
+       "promptId": "subagent-completed-01a1ffff-1111-7000-8000-000000000000",
+       "eventId": "sess-1-o1",
+       "chunkId": 1
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "agent_message_chunk",
+       "content": {
+        "type": "text",
+        "text": "回来了"
+       }
+      },
+      "_meta": {
+       "promptId": "subagent-completed-01a1ffff-1111-7000-8000-000000000000",
+       "eventId": "sess-1-o2",
+       "chunkId": 2
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   }
+  ],
+  "orphan-open": [
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "先结束这一轮"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "result": {
+     "stopReason": "end_turn"
+    },
+    "continue": true
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "  "
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "agent_message_chunk",
+       "content": {
+        "type": "text",
+        "text": "没人登记的子代理"
+       }
+      },
+      "_meta": {
+       "promptId": "subagent-completed-01a1ffff-1111-7000-8000-000000000000",
+       "eventId": "sess-1-o1",
+       "chunkId": 1
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "session/update",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "agent_message_chunk",
+       "content": {
+        "type": "text",
+        "text": "回来了"
+       }
+      },
+      "_meta": {
+       "promptId": "subagent-completed-01a1ffff-1111-7000-8000-000000000000",
+       "eventId": "sess-1-o2",
+       "chunkId": 2
+      }
+     }
+    }
+   }
+  ]
+ }
+}

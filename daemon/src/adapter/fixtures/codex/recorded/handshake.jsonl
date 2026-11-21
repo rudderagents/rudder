@@ -1,0 +1,9 @@
+{"recorded":{"cli":"codex 0.165.0","at":"2026-11-05T07:03:20.262Z","scenario":"handshake"}}
+{"dir":"spawn","argv":["codex","app-server"]}
+{"dir":"in","frame":{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"clientInfo":{"name":"rudder","title":"Rudder","version":"0.1.0"},"capabilities":{"experimentalApi":false,"requestAttestation":false}}}}
+{"dir":"out","frame":{"id":1,"result":{"userAgent":"rudder/0.165.0 (Mac OS 27.0.1; arm64) iTerm.app (rudder; 0.1.0)","codexHome":"~/.codex","platformFamily":"unix","platformOs":"macos"}}}
+{"dir":"in","frame":{"jsonrpc":"2.0","method":"initialized"}}
+{"dir":"out","frame":{"method":"remoteControl/status/changed","params":{"status":"disabled","serverName":"$HOST","installationId":"00000000-0000-4000-8000-000000000001","environmentId":null},"emittedAtMs":1793862198981}}
+{"dir":"in","frame":{"jsonrpc":"2.0","id":2,"method":"account/read","params":{}}}
+{"dir":"out","frame":{"method":"account/updated","params":{"authMode":"chatgpt","planType":"plus"},"emittedAtMs":1793862200257}}
+{"dir":"out","frame":{"id":2,"result":{"account":{"type":"chatgpt","email":"<redacted>","planType":"plus"},"requiresOpenaiAuth":true,"workspaceRouting":{"chatgptAccountId":"00000000-0000-4000-8000-000000000002","backendOrigin":"https://chatgpt.com","accountRoutingOverride":"NO_CONSTRAINT"}}}}

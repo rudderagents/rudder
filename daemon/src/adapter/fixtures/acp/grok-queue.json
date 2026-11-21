@@ -1,0 +1,1525 @@
+{
+ "initialize": {
+  "protocolVersion": 1,
+  "agentCapabilities": {
+   "loadSession": true,
+   "promptCapabilities": {
+    "image": false
+   }
+  },
+  "authMethods": [
+   {
+    "id": "cached_token",
+    "name": "cached_token"
+   }
+  ]
+ },
+ "newSession": {
+  "configOptions": [],
+  "_meta": {
+   "isGitRepo": false
+  }
+ },
+ "turns": {
+  "queue-settles": [
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [
+       {
+        "id": "q-0",
+        "version": 0,
+        "kind": "prompt",
+        "text": "x",
+        "position": 0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [],
+      "runningPromptId": "p-1",
+      "runningText": "x",
+      "runningKind": "prompt"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "已经在后台开始"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call",
+     "toolCallId": "call-bg",
+     "title": "run_terminal_command",
+     "rawInput": {
+      "command": "sleep 5 && echo finished",
+      "is_background": false
+     },
+     "_meta": {
+      "x.ai/tool": {
+       "name": "run_terminal_command",
+       "kind": "execute"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/task_backgrounded",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "task_backgrounded",
+       "tool_call_id": "call-bg",
+       "task_id": "t-1",
+       "command": "sleep 5 && echo finished"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "background_tasks",
+       "tasks": [
+        {
+         "task_id": "t-1",
+         "command": "sleep 5 && echo finished",
+         "kind": "bash",
+         "status": "running"
+        }
+       ]
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call_update",
+     "toolCallId": "call-bg",
+     "status": "completed",
+     "title": "[bg] sleep 5 && echo finished",
+     "rawOutput": {
+      "type": "BackgroundTaskStarted",
+      "task_id": "t-1",
+      "status": "running"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": []
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "prompt_id": "p-1",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "result": {
+     "stopReason": "end_turn"
+    },
+    "continue": true
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [],
+      "runningPromptId": "task-completed-t-1",
+      "runningText": "x",
+      "runningKind": "prompt"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/task_completed",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "task_completed",
+       "task_snapshot": {
+        "task_id": "t-1",
+        "command": "sleep 5 && echo finished",
+        "output": "finished\n",
+        "exit_code": 0,
+        "completed": true,
+        "kind": "bash"
+       },
+       "will_wake": true
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "background_tasks",
+       "tasks": [
+        {
+         "task_id": "t-1",
+         "command": "sleep 5 && echo finished",
+         "kind": "bash",
+         "status": "completed",
+         "exit_code": 0
+        }
+       ]
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "后台任务跑完了"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": []
+     }
+    }
+   }
+  ],
+  "late-task-end": [
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [
+       {
+        "id": "q-0",
+        "version": 0,
+        "kind": "prompt",
+        "text": "x",
+        "position": 0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [],
+      "runningPromptId": "p-1",
+      "runningText": "x",
+      "runningKind": "prompt"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "已经在后台开始"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call",
+     "toolCallId": "call-bg",
+     "title": "run_terminal_command",
+     "rawInput": {
+      "command": "sleep 5 && echo finished",
+      "is_background": false
+     },
+     "_meta": {
+      "x.ai/tool": {
+       "name": "run_terminal_command",
+       "kind": "execute"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/task_backgrounded",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "task_backgrounded",
+       "tool_call_id": "call-bg",
+       "task_id": "t-1",
+       "command": "sleep 5 && echo finished"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "background_tasks",
+       "tasks": [
+        {
+         "task_id": "t-1",
+         "command": "sleep 5 && echo finished",
+         "kind": "bash",
+         "status": "running"
+        }
+       ]
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call_update",
+     "toolCallId": "call-bg",
+     "status": "completed",
+     "title": "[bg] sleep 5 && echo finished",
+     "rawOutput": {
+      "type": "BackgroundTaskStarted",
+      "task_id": "t-1",
+      "status": "running"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": []
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "prompt_id": "p-1",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "result": {
+     "stopReason": "end_turn"
+    },
+    "continue": true
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [],
+      "runningPromptId": "task-completed-t-1",
+      "runningText": "x",
+      "runningKind": "prompt"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "后台任务跑完了"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": []
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "prompt_id": "task-completed-t-1",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/task_completed",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "task_completed",
+       "task_snapshot": {
+        "task_id": "t-1",
+        "command": "sleep 5 && echo finished",
+        "output": "finished\n",
+        "exit_code": 0,
+        "completed": true,
+        "kind": "bash"
+       },
+       "will_wake": false
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "background_tasks",
+       "tasks": [
+        {
+         "task_id": "t-1",
+         "command": "sleep 5 && echo finished",
+         "kind": "bash",
+         "status": "completed",
+         "exit_code": 0
+        }
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "unknown-status": [
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [
+       {
+        "id": "q-0",
+        "version": 0,
+        "kind": "prompt",
+        "text": "x",
+        "position": 0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [],
+      "runningPromptId": "p-1",
+      "runningText": "x",
+      "runningKind": "prompt"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "已经在后台开始"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call",
+     "toolCallId": "call-bg",
+     "title": "run_terminal_command",
+     "rawInput": {
+      "command": "sleep 5 && echo finished",
+      "is_background": false
+     },
+     "_meta": {
+      "x.ai/tool": {
+       "name": "run_terminal_command",
+       "kind": "execute"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/task_backgrounded",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "task_backgrounded",
+       "tool_call_id": "call-bg",
+       "task_id": "t-1",
+       "command": "sleep 5 && echo finished"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "background_tasks",
+       "tasks": [
+        {
+         "task_id": "t-1",
+         "command": "sleep 5 && echo finished",
+         "kind": "bash",
+         "status": "running"
+        }
+       ]
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call_update",
+     "toolCallId": "call-bg",
+     "status": "completed",
+     "title": "[bg] sleep 5 && echo finished",
+     "rawOutput": {
+      "type": "BackgroundTaskStarted",
+      "task_id": "t-1",
+      "status": "running"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": []
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "prompt_id": "p-1",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "result": {
+     "stopReason": "end_turn"
+    },
+    "continue": true
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "background_tasks",
+       "tasks": [
+        {
+         "task_id": "t-1",
+         "command": "sleep 5 && echo finished",
+         "kind": "bash",
+         "status": "orphaned",
+         "exit_code": 0
+        }
+       ]
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": []
+     }
+    }
+   }
+  ],
+  "announced-wake": [
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [
+       {
+        "id": "q-0",
+        "version": 0,
+        "kind": "prompt",
+        "text": "x",
+        "position": 0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [],
+      "runningPromptId": "p-1",
+      "runningText": "x",
+      "runningKind": "prompt"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "已经在后台开始"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call",
+     "toolCallId": "call-bg",
+     "title": "run_terminal_command",
+     "rawInput": {
+      "command": "sleep 5 && echo finished",
+      "is_background": false
+     },
+     "_meta": {
+      "x.ai/tool": {
+       "name": "run_terminal_command",
+       "kind": "execute"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/task_backgrounded",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "task_backgrounded",
+       "tool_call_id": "call-bg",
+       "task_id": "t-1",
+       "command": "sleep 5 && echo finished"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "background_tasks",
+       "tasks": [
+        {
+         "task_id": "t-1",
+         "command": "sleep 5 && echo finished",
+         "kind": "bash",
+         "status": "running"
+        }
+       ]
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call_update",
+     "toolCallId": "call-bg",
+     "status": "completed",
+     "title": "[bg] sleep 5 && echo finished",
+     "rawOutput": {
+      "type": "BackgroundTaskStarted",
+      "task_id": "t-1",
+      "status": "running"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": []
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "prompt_id": "p-1",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "result": {
+     "stopReason": "end_turn"
+    },
+    "continue": true
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "notify": {
+     "method": "_x.ai/task_completed",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "task_completed",
+       "task_snapshot": {
+        "task_id": "t-1",
+        "command": "sleep 5 && echo finished",
+        "output": "finished\n",
+        "exit_code": 0,
+        "completed": true,
+        "kind": "bash"
+       },
+       "will_wake": true
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "background_tasks",
+       "tasks": [
+        {
+         "task_id": "t-1",
+         "command": "sleep 5 && echo finished",
+         "kind": "bash",
+         "status": "completed",
+         "exit_code": 0
+        }
+       ]
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": []
+     }
+    }
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [],
+      "runningPromptId": "task-completed-t-1",
+      "runningText": "x",
+      "runningKind": "prompt"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "后台任务跑完了"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "prompt_id": "task-completed-t-1",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   }
+  ],
+  "exit-held": [
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [
+       {
+        "id": "q-0",
+        "version": 0,
+        "kind": "prompt",
+        "text": "x",
+        "position": 0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [],
+      "runningPromptId": "p-1",
+      "runningText": "x",
+      "runningKind": "prompt"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "已经在后台开始"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call",
+     "toolCallId": "call-bg",
+     "title": "run_terminal_command",
+     "rawInput": {
+      "command": "sleep 5 && echo finished",
+      "is_background": false
+     },
+     "_meta": {
+      "x.ai/tool": {
+       "name": "run_terminal_command",
+       "kind": "execute"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/task_backgrounded",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "task_backgrounded",
+       "tool_call_id": "call-bg",
+       "task_id": "t-1",
+       "command": "sleep 5 && echo finished"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "background_tasks",
+       "tasks": [
+        {
+         "task_id": "t-1",
+         "command": "sleep 5 && echo finished",
+         "kind": "bash",
+         "status": "running"
+        }
+       ]
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call_update",
+     "toolCallId": "call-bg",
+     "status": "completed",
+     "title": "[bg] sleep 5 && echo finished",
+     "rawOutput": {
+      "type": "BackgroundTaskStarted",
+      "task_id": "t-1",
+      "status": "running"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": []
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "prompt_id": "p-1",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "result": {
+     "stopReason": "end_turn"
+    },
+    "continue": true
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "exit": 1
+   }
+  ],
+  "queued-wake": [
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [
+       {
+        "id": "q-0",
+        "version": 0,
+        "kind": "prompt",
+        "text": "x",
+        "position": 0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [],
+      "runningPromptId": "p-1",
+      "runningText": "x",
+      "runningKind": "prompt"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "已经派出子代理"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call",
+     "toolCallId": "call-sub",
+     "title": "spawn_subagent",
+     "rawInput": {
+      "description": "sleep 1 then DONE"
+     },
+     "_meta": {
+      "x.ai/tool": {
+       "name": "spawn_subagent",
+       "kind": "other"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "subagent_spawned",
+       "subagent_id": "s-1",
+       "parent_session_id": "sess-1",
+       "parent_prompt_id": "p-1",
+       "child_session_id": "s-1",
+       "subagent_type": "general-purpose",
+       "description": "sleep 1 then DONE"
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call_update",
+     "toolCallId": "call-sub",
+     "status": "completed",
+     "rawOutput": {
+      "type": "Text",
+      "text": "Subagent started in background.\nsubagent_id: s-1\ndescription: sleep 1 then DONE"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "subagent_finished",
+       "subagent_id": "s-1",
+       "child_session_id": "s-1",
+       "status": "completed",
+       "output": "DONE",
+       "will_wake": true
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [
+       {
+        "id": "subagent-completed-s-1",
+        "version": 0,
+        "kind": "prompt",
+        "text": "x",
+        "position": 0
+       }
+      ],
+      "runningPromptId": "p-1",
+      "runningText": "x",
+      "runningKind": "prompt"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "主任务也说完了"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [
+       {
+        "id": "subagent-completed-s-1",
+        "version": 0,
+        "kind": "prompt",
+        "text": "x",
+        "position": 0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "prompt_id": "p-1",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "result": {
+     "stopReason": "end_turn"
+    },
+    "continue": true
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": []
+     }
+    }
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [],
+      "runningPromptId": "subagent-completed-s-1",
+      "runningText": "x",
+      "runningKind": "prompt"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "子代理做完了"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "prompt_id": "subagent-completed-s-1",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   }
+  ],
+  "folded-wake": [
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [
+       {
+        "id": "q-0",
+        "version": 0,
+        "kind": "prompt",
+        "text": "x",
+        "position": 0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [],
+      "runningPromptId": "p-1",
+      "runningText": "x",
+      "runningKind": "prompt"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "已经派出子代理"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call",
+     "toolCallId": "call-sub",
+     "title": "spawn_subagent",
+     "rawInput": {
+      "description": "sleep 1 then DONE"
+     },
+     "_meta": {
+      "x.ai/tool": {
+       "name": "spawn_subagent",
+       "kind": "other"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "subagent_spawned",
+       "subagent_id": "s-1",
+       "parent_session_id": "sess-1",
+       "parent_prompt_id": "p-1",
+       "child_session_id": "s-1",
+       "subagent_type": "general-purpose",
+       "description": "sleep 1 then DONE"
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call_update",
+     "toolCallId": "call-sub",
+     "status": "completed",
+     "rawOutput": {
+      "type": "Text",
+      "text": "Subagent started in background.\nsubagent_id: s-1\ndescription: sleep 1 then DONE"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "subagent_finished",
+       "subagent_id": "s-1",
+       "child_session_id": "s-1",
+       "status": "completed",
+       "output": "DONE",
+       "will_wake": true
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [
+       {
+        "id": "subagent-completed-s-1",
+        "version": 0,
+        "kind": "prompt",
+        "text": "x",
+        "position": 0
+       }
+      ],
+      "runningPromptId": "p-1",
+      "runningText": "x",
+      "runningKind": "prompt"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [],
+      "runningPromptId": "p-1",
+      "runningText": "x",
+      "runningKind": "prompt"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "子代理也做完了"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": []
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "prompt_id": "p-1",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "result": {
+     "stopReason": "end_turn"
+    }
+   }
+  ],
+  "dropped-wake": [
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [
+       {
+        "id": "q-0",
+        "version": 0,
+        "kind": "prompt",
+        "text": "x",
+        "position": 0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [],
+      "runningPromptId": "p-1",
+      "runningText": "x",
+      "runningKind": "prompt"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "已经派出子代理"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call",
+     "toolCallId": "call-sub",
+     "title": "spawn_subagent",
+     "rawInput": {
+      "description": "sleep 1 then DONE"
+     },
+     "_meta": {
+      "x.ai/tool": {
+       "name": "spawn_subagent",
+       "kind": "other"
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "subagent_spawned",
+       "subagent_id": "s-1",
+       "parent_session_id": "sess-1",
+       "parent_prompt_id": "p-1",
+       "child_session_id": "s-1",
+       "subagent_type": "general-purpose",
+       "description": "sleep 1 then DONE"
+      }
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "tool_call_update",
+     "toolCallId": "call-sub",
+     "status": "completed",
+     "rawOutput": {
+      "type": "Text",
+      "text": "Subagent started in background.\nsubagent_id: s-1\ndescription: sleep 1 then DONE"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "subagent_finished",
+       "subagent_id": "s-1",
+       "child_session_id": "s-1",
+       "status": "completed",
+       "output": "DONE",
+       "will_wake": true
+      }
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [
+       {
+        "id": "subagent-completed-s-1",
+        "version": 0,
+        "kind": "prompt",
+        "text": "x",
+        "position": 0
+       }
+      ],
+      "runningPromptId": "p-1",
+      "runningText": "x",
+      "runningKind": "prompt"
+     }
+    }
+   },
+   {
+    "update": {
+     "sessionUpdate": "agent_message_chunk",
+     "content": {
+      "type": "text",
+      "text": "主任务也说完了"
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": [
+       {
+        "id": "subagent-completed-s-1",
+        "version": 0,
+        "kind": "prompt",
+        "text": "x",
+        "position": 0
+       }
+      ]
+     }
+    }
+   },
+   {
+    "notify": {
+     "method": "_x.ai/session_notification",
+     "params": {
+      "sessionId": "sess-1",
+      "update": {
+       "sessionUpdate": "turn_completed",
+       "prompt_id": "p-1",
+       "stop_reason": "end_turn"
+      }
+     }
+    }
+   },
+   {
+    "result": {
+     "stopReason": "end_turn"
+    },
+    "continue": true
+   },
+   {
+    "sleep": 30
+   },
+   {
+    "notify": {
+     "method": "_x.ai/queue/changed",
+     "params": {
+      "sessionId": "sess-1",
+      "entries": []
+     }
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,5 @@
+{"expect":"initialize","result":{}}
+{"expect":"initialized"}
+{"expect":"thread/start","result":{"thread":{"id":"thr-exit"}}}
+{"sleep":200}
+{"exit":1}

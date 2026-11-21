@@ -1,0 +1,19 @@
+{"initialize":{"session_state":"idle"}}
+{"await":"user"}
+{"type":"system","subtype":"session_state_changed","state":"running","session_id":"$SID"}
+{"type":"system","subtype":"init","cwd":"/tmp/ws","session_id":"$SID","model":"claude-haiku-5-5","permissionMode":"default","tools":["Bash","Agent"],"slash_commands":[]}
+{"type":"assistant","message":{"id":"msg_j1","type":"message","role":"assistant","content":[{"type":"text","text":"Launched"}],"stop_reason":null},"parent_tool_use_id":null,"session_id":"$SID"}
+{"type":"result","subtype":"success","is_error":false,"num_turns":1,"session_id":"$SID","total_cost_usd":0.001,"usage":{"input_tokens":2,"output_tokens":3},"modelUsage":{"claude-haiku-5-5":{"outputTokens":3}},"terminal_reason":"completed","result":"Launched","stop_reason":"end_turn"}
+{"type":"system","subtype":"session_state_changed","state":"idle","session_id":"$SID"}
+{"sleep":100}
+{"type":"system","subtype":"task_notification","task_id":"t9","tool_use_id":"toolu_t9","status":"completed","summary":"DONE","session_id":"$SID"}
+{"type":"system","subtype":"session_state_changed","state":"running","session_id":"$SID"}
+{"type":"system","subtype":"init","cwd":"/tmp/ws","session_id":"$SID","model":"claude-haiku-5-5","permissionMode":"default","tools":["Bash","Agent"],"slash_commands":[]}
+{"type":"assistant","message":{"id":"msg_j2","type":"message","role":"assistant","content":[{"type":"text","text":"The task finished"}],"stop_reason":null},"parent_tool_use_id":null,"session_id":"$SID"}
+{"await":"user"}
+{"type":"result","subtype":"success","is_error":false,"num_turns":1,"session_id":"$SID","total_cost_usd":0.002,"usage":{"input_tokens":2,"output_tokens":4},"modelUsage":{"claude-haiku-5-5":{"outputTokens":7}},"terminal_reason":"completed","result":"The task finished","stop_reason":"end_turn"}
+{"type":"system","subtype":"init","cwd":"/tmp/ws","session_id":"$SID","model":"claude-haiku-5-5","permissionMode":"default","tools":["Bash","Agent"],"slash_commands":[]}
+{"type":"user","isReplay":true,"message":{"role":"user","content":"and you?"},"session_id":"$SID","parent_tool_use_id":null}
+{"type":"assistant","message":{"id":"msg_j3","type":"message","role":"assistant","content":[{"type":"text","text":"Answer"}],"stop_reason":null},"parent_tool_use_id":null,"session_id":"$SID"}
+{"type":"result","subtype":"success","is_error":false,"num_turns":1,"session_id":"$SID","total_cost_usd":0.003,"usage":{"input_tokens":2,"output_tokens":2},"modelUsage":{"claude-haiku-5-5":{"outputTokens":9}},"terminal_reason":"completed","result":"Answer","stop_reason":"end_turn"}
+{"type":"system","subtype":"session_state_changed","state":"idle","session_id":"$SID"}

@@ -1,0 +1,7 @@
+{"await":"user"}
+{"type":"system","subtype":"init","cwd":"/tmp/ws","session_id":"$SID","model":"claude-haiku-5-5","permissionMode":"$MODE","tools":["Bash","Read","Write","AskUserQuestion","ExitPlanMode"]}
+{"type":"assistant","message":{"id":"msg_S1","type":"message","role":"assistant","content":[{"type":"text","text":"First"}],"stop_reason":null},"parent_tool_use_id":null,"session_id":"$SID"}
+{"await":"user"}
+{"await":"interrupt"}
+{"type":"user","message":{"role":"user","content":[{"type":"text","text":"[Request interrupted by user]"}]},"parent_tool_use_id":null,"session_id":"$SID"}
+{"type":"result","subtype":"error_during_execution","is_error":true,"num_turns":1,"session_id":"$SID","total_cost_usd":0,"usage":{"input_tokens":0,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":0},"modelUsage":{}}

@@ -1,0 +1,4 @@
+{"recorded":{"cli":"pi 1.5.2","at":"2026-11-17T06:46:59.192Z","scenario":"handshake"}}
+{"dir":"spawn","argv":["npx","-y","pi-acp@0.0.34"]}
+{"dir":"in","frame":{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":1,"clientCapabilities":{"fs":{"readTextFile":false,"writeTextFile":false},"terminal":false},"clientInfo":{"name":"rudderd","version":"0.1.0"}}}}
+{"dir":"out","frame":{"jsonrpc":"2.0","id":1,"result":{"protocolVersion":1,"agentInfo":{"name":"pi-acp","title":"pi ACP adapter","version":"0.0.34"},"authMethods":[{"id":"pi_terminal_login","name":"Launch pi in the terminal","description":"Start pi in an interactive terminal to configure API keys or login","type":"terminal","args":["--terminal-login"],"env":{}}],"agentCapabilities":{"loadSession":true,"mcpCapabilities":{"http":false,"sse":false},"promptCapabilities":{"image":true,"audio":false,"embeddedContext":false},"sessionCapabilities":{"list":{},"delete":{}}}}}}

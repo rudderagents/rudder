@@ -1,0 +1,9 @@
+{"expect":"initialize","result":{}}
+{"expect":"initialized"}
+{"expect":"thread/start","result":{"thread":{"id":"thr-closed"}}}
+{"expect":"turn/start","result":{"turn":{"id":"turn-c1","status":"inProgress","error":null}}}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-closed","turn":{"id":"turn-c1","status":"completed","error":null}}}}
+{"send":{"method":"thread/closed","params":{"threadId":"thr-closed"}}}
+{"expect":"thread/resume","result":{"thread":{"id":"thr-closed"}}}
+{"expect":"turn/start","result":{"turn":{"id":"turn-c2","status":"inProgress","error":null}}}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-closed","turn":{"id":"turn-c2","status":"completed","error":null}}}}

@@ -1,0 +1,9 @@
+{"expect":"initialize","result":{}}
+{"expect":"initialized"}
+{"expect":"thread/start","result":{"thread":{"id":"thr-one"}}}
+{"expect":"turn/start","result":{"turn":{"id":"turn-one","status":"inProgress","error":null}}}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-one","turn":{"id":"turn-one","status":"completed","error":null}}}}
+{"expect":"thread/start","result":{"thread":{"id":"thr-two"}}}
+{"expect":"turn/start","result":{"turn":{"id":"turn-two","status":"inProgress","error":null}}}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-two","turn":{"id":"turn-two","status":"completed","error":null}}}}
+{"expect":"thread/unsubscribe","result":{"status":"unsubscribed"}}

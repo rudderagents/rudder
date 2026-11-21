@@ -1,0 +1,9 @@
+{
+  "comment": "Shared slot pass vector: a throwaway test key; rudderd must sign these exact passes and the relay and relay-node must accept them.",
+  "privateKeyPkcs8": "MC4CAQAwBQYDK2VwBCIEINKWX2ByGDxCaD6/JDsmrBOJqVzmaQ2Xn6DfqwgFThAt",
+  "slot": "tg6eejg23cxrjz5ozi5p6w2prv",
+  "device": "8f6c2b9e-1d4a-4c7e-9b2f-0a1b2c3d4e5f",
+  "exp": 1800000000,
+  "devicePass": "v1.Hg7_6pzg7F3QIi1P2xdWTY5z90Ks_akgSq23uaGkoE4.eyJzbG90IjoidGc2ZWVqZzIzY3hyano1b3ppNXA2dzJwcnYiLCJkZXZpY2UiOiI4ZjZjMmI5ZS0xZDRhLTRjN2UtOWIyZi0wYTFiMmMzZDRlNWYiLCJleHAiOjE4MDAwMDAwMDB9.m7c7_rPkqx0_UiZ6vFXscv65BIM6oypot-RXeYRBlLaXzmq1y5Djb_GM1c92CObdvuv9YkBvd85h_7ddFPyfBg",
+  "pairingPass": "v1.Hg7_6pzg7F3QIi1P2xdWTY5z90Ks_akgSq23uaGkoE4.eyJzbG90IjoidGc2ZWVqZzIzY3hyano1b3ppNXA2dzJwcnYiLCJkZXZpY2UiOiIiLCJleHAiOjE4MDAwMDAwMDB9.NQ9a2WcTUw12HS0evNb-KP4PdeAizqKBu_XDJ_da_Clj5p0Sdp_tHgLWjHai85DQushbR4pb-anp1hytAf4XCg"
+}

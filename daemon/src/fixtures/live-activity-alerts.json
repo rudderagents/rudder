@@ -1,0 +1,42 @@
+[
+  {
+    "title": "需批准",
+    "body": "有一项操作等你批准"
+  },
+  {
+    "title": "完成",
+    "body": "这一轮结束了"
+  },
+  {
+    "title": "失败",
+    "body": "这一轮没有完成"
+  },
+  {
+    "title": "等你回答",
+    "body": "有一个问题等你回答"
+  },
+  {
+    "title": "在跑",
+    "body": "电脑上有一轮开始了"
+  },
+  {
+    "title": "Needs approval",
+    "body": "An action is waiting for your approval"
+  },
+  {
+    "title": "Done",
+    "body": "This turn finished"
+  },
+  {
+    "title": "Failed",
+    "body": "This turn did not finish"
+  },
+  {
+    "title": "Needs an answer",
+    "body": "A question is waiting"
+  },
+  {
+    "title": "Running",
+    "body": "A turn started on your computer"
+  }
+]

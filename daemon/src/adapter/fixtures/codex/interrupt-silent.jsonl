@@ -1,0 +1,7 @@
+{"expect":"initialize","result":{"userAgent":"rudder/0.163.0","codexHome":"/tmp/codex-home","platformFamily":"unix","platformOs":"macos"}}
+{"expect":"initialized"}
+{"expect":"thread/start","result":{"thread":{"id":"thr-silent","sessionId":"thr-silent","cwd":"/tmp/ws","status":{"type":"idle"},"turns":[]},"model":"gpt-6-luna","modelProvider":"openai","cwd":"/tmp/ws","approvalPolicy":"untrusted","approvalsReviewer":"user","sandbox":{"type":"workspaceWrite","writableRoots":[],"networkAccess":false,"excludeTmpdirEnvVar":false,"excludeSlashTmp":false},"reasoningEffort":"low"}}
+{"expect":"turn/start","result":{"turn":{"id":"turn-q1","rootTurnId":"turn-q1","items":[],"itemsView":"notLoaded","status":"inProgress","error":null}}}
+{"send":{"method":"item/started","params":{"threadId":"thr-silent","turnId":"turn-q1","item":{"type":"commandExecution","id":"exec-q1","pluginId":null,"scriptPath":null,"command":"/bin/zsh -lc 'sleep 30'","cwd":"/tmp/ws","processId":null,"source":"agent","status":"inProgress","commandActions":[{"type":"unknown","command":"sleep 30"}],"aggregatedOutput":null,"exitCode":null,"durationMs":null},"startedAtMs":1}}}
+{"expect":"turn/interrupt","result":{}}
+{"expect": "thread/read", "result": {"thread": {"id": "thr-silent", "sessionId": "thr-silent", "cwd": "/tmp/ws", "status": {"type": "idle"}, "turns": []}}}

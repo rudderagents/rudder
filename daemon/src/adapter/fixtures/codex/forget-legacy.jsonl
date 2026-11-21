@@ -1,0 +1,9 @@
+{"expect":"initialize","result":{}}
+{"expect":"initialized"}
+{"expect":"thread/start","result":{"thread":{"id":"thr-idle"}}}
+{"expect":"turn/start","result":{"turn":{"id":"turn-i1","status":"inProgress","error":null}}}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-idle","turn":{"id":"turn-i1","status":"completed","error":null}}}}
+{"expect":"thread/unsubscribe","error":{"code":-32601,"message":"method not found"}}
+{"expect":"thread/resume","result":{"thread":{"id":"thr-idle"}}}
+{"expect":"turn/start","result":{"turn":{"id":"turn-i2","status":"inProgress","error":null}}}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-idle","turn":{"id":"turn-i2","status":"completed","error":null}}}}

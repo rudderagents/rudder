@@ -1,0 +1,14 @@
+{"await":"user"}
+{"type":"system","subtype":"init","cwd":"/tmp/ws","session_id":"$SID","model":"claude-haiku-5-5","permissionMode":"plan","tools":["Bash","Read","Write","AskUserQuestion","ExitPlanMode"]}
+{"type":"assistant","message":{"id":"msg_L1","type":"message","role":"assistant","content":[{"type":"tool_use","id":"toolu_L1","name":"ExitPlanMode","input":{"plan":"# Plan: create empty probe-plan.txt\n\n- Run `touch probe-plan.txt`.\n","planFilePath":"/tmp/plans/plan.md"}}],"stop_reason":null},"parent_tool_use_id":null,"session_id":"$SID"}
+{"type":"control_request","request_id":"plan-1","request":{"subtype":"can_use_tool","tool_name":"ExitPlanMode","display_name":"ExitPlanMode","input":{"plan":"# Plan: create empty probe-plan.txt\n\n- Run `touch probe-plan.txt`.\n","planFilePath":"/tmp/plans/plan.md"},"tool_use_id":"toolu_L1","requires_user_interaction":true}}
+{"await":"control_response"}
+{"type":"system","subtype":"status","status":null,"permissionMode":"default","session_id":"$SID"}
+{"type":"user","message":{"role":"user","content":[{"tool_use_id":"toolu_L1","type":"tool_result","content":"User has approved your plan. You can now start coding."}]},"parent_tool_use_id":null,"session_id":"$SID"}
+{"type":"assistant","message":{"id":"msg_L2","type":"message","role":"assistant","content":[{"type":"text","text":"Plan approved."}],"stop_reason":null},"parent_tool_use_id":null,"session_id":"$SID"}
+{"type":"result","subtype":"success","is_error":false,"num_turns":1,"session_id":"$SID","total_cost_usd":0.0421,"usage":{"input_tokens":10,"cache_creation_input_tokens":9000,"cache_read_input_tokens":90000,"output_tokens":300,"output_tokens_details":{"thinking_tokens":0},"service_tier":"standard"},"modelUsage":{"claude-haiku-5-5":{"outputTokens":300,"costUSD":0.0421,"contextWindow":1000000}},"permission_denials":[],"terminal_reason":"completed","result_index":0,"result":"Plan approved.","stop_reason":"end_turn"}
+{"await":"user"}
+{"type":"system","subtype":"init","cwd":"/tmp/ws","session_id":"$SID","model":"claude-haiku-5-5","permissionMode":"plan","tools":["Bash","Read","Write","AskUserQuestion","ExitPlanMode"]}
+{"type":"assistant","message":{"id":"msg_L3","type":"message","role":"assistant","content":[{"type":"text","text":"Still planning."}],"stop_reason":null},"parent_tool_use_id":null,"session_id":"$SID"}
+{"type":"rate_limit_event","rate_limit_info":{"status":"allowed","rateLimitType":"five_hour"}}
+{"type":"result","subtype":"success","is_error":false,"num_turns":1,"session_id":"$SID","total_cost_usd":0.0431,"usage":{"input_tokens":2,"cache_creation_input_tokens":5797,"cache_read_input_tokens":11228,"output_tokens":5,"output_tokens_details":{"thinking_tokens":0},"service_tier":"standard"},"modelUsage":{"claude-haiku-5-5":{"outputTokens":305,"costUSD":0.0431,"contextWindow":1000000}},"permission_denials":[],"terminal_reason":"completed","result_index":1,"result":"Still planning.","stop_reason":"end_turn"}

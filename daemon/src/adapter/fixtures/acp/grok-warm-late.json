@@ -1,0 +1,48 @@
+{
+  "initialize": {
+    "protocolVersion": 1,
+    "agentCapabilities": {
+      "loadSession": true,
+      "promptCapabilities": {
+        "image": false
+      }
+    },
+    "authMethods": [
+      {
+        "id": "cached_token",
+        "name": "cached_token"
+      }
+    ]
+  },
+  "newSession": {
+    "configOptions": [],
+    "_meta": {
+      "isGitRepo": false
+    }
+  },
+  "turns": {},
+  "loadReplay": [
+    {
+      "sessionUpdate": "agent_message_chunk",
+      "content": {
+        "type": "text",
+        "text": "REPLAY"
+      }
+    }
+  ],
+  "loadAfter": {
+    "delay": 30,
+    "update": {
+      "sessionUpdate": "agent_message_chunk",
+      "content": {
+        "type": "text",
+        "text": "WARM_LATE"
+      }
+    },
+    "meta": {
+      "eventId": "warm-event",
+      "promptId": "task-completed-original-task",
+      "chunkId": 1
+    }
+  }
+}

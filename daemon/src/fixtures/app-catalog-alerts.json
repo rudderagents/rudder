@@ -1,0 +1,114 @@
+{
+  "strings": {
+    "需批准": {
+      "zh-Hant": "需核准",
+      "en": "Needs approval",
+      "de": "Freigabe nötig",
+      "fr": "Approbation requise",
+      "ja": "承認が必要です",
+      "ko": "승인 필요",
+      "es-419": "Requiere aprobación",
+      "zh-Hans": "需批准"
+    },
+    "有一项操作等你批准": {
+      "zh-Hant": "有一項操作等你核准",
+      "en": "An action is waiting for your approval",
+      "de": "Eine Aktion wartet auf Ihre Freigabe",
+      "fr": "Une action attend votre approbation",
+      "ja": "承認待ちの操作があります",
+      "ko": "승인을 기다리는 작업이 있어요",
+      "es-419": "Una acción espera tu aprobación",
+      "zh-Hans": "有一项操作等你批准"
+    },
+    "完成": {
+      "zh-Hans": "完成",
+      "zh-Hant": "完成",
+      "en": "Done",
+      "de": "Fertig",
+      "fr": "OK",
+      "ja": "完了",
+      "ko": "완료",
+      "es-419": "Listo"
+    },
+    "这一轮结束了": {
+      "zh-Hans": "这一轮结束了",
+      "zh-Hant": "這一輪結束了",
+      "en": "This turn finished",
+      "de": "Diese Runde ist beendet",
+      "fr": "Ce tour est terminé",
+      "ja": "このターンは終了しました",
+      "ko": "이 턴이 끝났어요",
+      "es-419": "Este turno terminó"
+    },
+    "失败": {
+      "zh-Hans": "失败",
+      "zh-Hant": "失敗",
+      "en": "Failed",
+      "de": "Fehlgeschlagen",
+      "fr": "Échec",
+      "ja": "失敗",
+      "ko": "실패",
+      "es-419": "Error"
+    },
+    "这一轮没有完成": {
+      "zh-Hans": "这一轮没有完成",
+      "zh-Hant": "這一輪沒有完成",
+      "en": "This turn did not finish",
+      "de": "Diese Runde wurde nicht beendet",
+      "fr": "Ce tour ne s’est pas terminé",
+      "ja": "このターンは完了しませんでした",
+      "ko": "이 턴이 끝나지 않았어요",
+      "es-419": "Este turno no terminó"
+    },
+    "等你回答": {
+      "zh-Hans": "等你回答",
+      "zh-Hant": "等你回答",
+      "en": "Needs your answer",
+      "de": "Antwort nötig",
+      "fr": "Réponse nécessaire",
+      "ja": "回答が必要です",
+      "ko": "답변이 필요해요",
+      "es-419": "Espera respuesta"
+    },
+    "有一个问题等你回答": {
+      "zh-Hans": "有一个问题等你回答",
+      "zh-Hant": "有一個問題等你回答",
+      "en": "A question is waiting for you",
+      "de": "Eine Frage wartet auf Sie",
+      "fr": "Une question vous attend",
+      "ja": "回答待ちの質問があります",
+      "ko": "질문이 기다리고 있어요",
+      "es-419": "Una pregunta te espera"
+    },
+    "在跑": {
+      "zh-Hant": "在跑",
+      "en": "Running",
+      "de": "Läuft",
+      "fr": "En cours",
+      "ja": "実行中",
+      "ko": "실행 중",
+      "es-419": "En curso",
+      "zh-Hans": "在跑"
+    },
+    "电脑上有一轮开始了": {
+      "zh-Hant": "電腦上有一輪開始了",
+      "en": "A turn started on your computer",
+      "de": "Auf Ihrem Computer hat eine Runde begonnen",
+      "fr": "Un tour a commencé sur votre ordinateur",
+      "ja": "コンピュータでターンが始まりました",
+      "ko": "컴퓨터에서 턴이 시작됐어요",
+      "es-419": "Comenzó un turno en tu computadora",
+      "zh-Hans": "电脑上有一轮开始了"
+    },
+    "后台任务做完，Agent 会主动汇报": {
+      "zh-Hans": "后台任务做完，Agent 会主动汇报",
+      "zh-Hant": "背景任務做完，Agent 會主動回報",
+      "en": "Background work done, agent reports back",
+      "de": "Hintergrundarbeit erledigt, Agent meldet sich",
+      "fr": "Tâche d’arrière-plan terminée, l’agent fait le point",
+      "ja": "バックグラウンドの作業が完了、エージェントが報告します",
+      "ko": "백그라운드 작업 완료, 에이전트가 알려 드립니다",
+      "es-419": "Trabajo en segundo plano listo, el agente informa"
+    }
+  }
+}

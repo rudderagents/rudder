@@ -1,0 +1,8 @@
+{"await":"user"}
+{"type":"system","subtype":"init","cwd":"/tmp/ws","session_id":"$SID","model":"claude-opus-4-8","permissionMode":"default","tools":["Bash","Read"],"slash_commands":["compact"]}
+{"type":"rate_limit_event","rate_limit_info":{"status":"allowed","rateLimitType":"five_hour"}}
+{"type":"assistant","message":{"id":"msg_L1","type":"message","role":"assistant","content":[{"type":"text","text":"OK"}],"stop_reason":null},"parent_tool_use_id":null,"session_id":"$SID"}
+{"type":"rate_limit_event","rate_limit_info":{"status":"allowed_warning","rateLimitType":"seven_day_opus","resetsAt":4102444800,"utilization":0.82,"isUsingOverage":false}}
+{"type":"rate_limit_event","rate_limit_info":{"status":"rejected","rateLimitType":"five_hour","resetsAt":4102444800}}
+{"type":"rate_limit_event","rate_limit_info":{"status":"allowed_warning","rateLimitType":"seven_day","resetsAt":946684800,"utilization":0.9}}
+{"type":"result","subtype":"success","is_error":false,"num_turns":1,"session_id":"$SID","total_cost_usd":0.001,"usage":{"input_tokens":2,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":4,"service_tier":"standard"},"modelUsage":{},"permission_denials":[],"terminal_reason":"completed","result_index":0,"result":"OK","stop_reason":"end_turn"}

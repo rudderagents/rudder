@@ -1,0 +1,6 @@
+{"expect":"initialize","result":{"userAgent":"rudder/0.163.0","codexHome":"/tmp/codex-home","platformFamily":"unix","platformOs":"macos"}}
+{"expect":"initialized"}
+{"expect":"thread/fork","result":{"thread":{"id":"thr-fork","sessionId":"thr-fork","cwd":"/tmp/ws","status":{"type":"idle"},"turns":[]},"model":"gpt-6-luna","modelProvider":"openai","cwd":"/tmp/ws","approvalPolicy":"untrusted","approvalsReviewer":"user","sandbox":{"type":"workspaceWrite","writableRoots":[],"networkAccess":false,"excludeTmpdirEnvVar":false,"excludeSlashTmp":false},"reasoningEffort":"low"}}
+{"expect":"turn/start","result":{"turn":{"id":"turn-n1","rootTurnId":"turn-n1","items":[],"itemsView":"notLoaded","status":"inProgress","error":null}}}
+{"send":{"method":"item/completed","params":{"threadId":"thr-fork","turnId":"turn-n1","item":{"type":"agentMessage","id":"msg_n1","text":"fresh start","phase":"final_answer","memoryCitation":null,"delivery":null,"questions":null},"startedAtMs":1}}}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-fork","turn":{"id":"turn-n1","rootTurnId":"turn-n1","items":[],"itemsView":"notLoaded","status":"completed","error":null}}}}

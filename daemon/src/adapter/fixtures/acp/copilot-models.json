@@ -1,0 +1,1054 @@
+{
+  "initialize": {
+    "protocolVersion": 1,
+    "agentCapabilities": {
+      "loadSession": true,
+      "mcpCapabilities": {
+        "http": true,
+        "sse": true
+      },
+      "promptCapabilities": {
+        "image": true,
+        "audio": false,
+        "embeddedContext": true
+      },
+      "sessionCapabilities": {
+        "close": {},
+        "list": {}
+      }
+    },
+    "agentInfo": {
+      "name": "Copilot",
+      "title": "Copilot",
+      "version": "1.0.105"
+    },
+    "authMethods": [
+      {
+        "id": "copilot-login",
+        "name": "Log in with Copilot CLI",
+        "description": "Run `copilot login` in the terminal"
+      }
+    ]
+  },
+  "newSession": {
+    "modes": {
+      "availableModes": [
+        {
+          "id": "https://agentclientprotocol.com/protocol/session-modes#agent",
+          "name": "Agent"
+        },
+        {
+          "id": "https://agentclientprotocol.com/protocol/session-modes#plan",
+          "name": "Plan"
+        },
+        {
+          "id": "https://agentclientprotocol.com/protocol/session-modes#autopilot",
+          "name": "Autopilot"
+        }
+      ],
+      "currentModeId": "https://agentclientprotocol.com/protocol/session-modes#agent"
+    },
+    "configOptions": [
+      {
+        "type": "select",
+        "id": "mode",
+        "name": "Mode",
+        "category": "mode",
+        "currentValue": "https://agentclientprotocol.com/protocol/session-modes#agent",
+        "options": [
+          {
+            "value": "https://agentclientprotocol.com/protocol/session-modes#agent",
+            "name": "Agent"
+          },
+          {
+            "value": "https://agentclientprotocol.com/protocol/session-modes#plan",
+            "name": "Plan"
+          },
+          {
+            "value": "https://agentclientprotocol.com/protocol/session-modes#autopilot",
+            "name": "Autopilot"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "model",
+        "name": "Model",
+        "category": "model",
+        "currentValue": "claude-sonnet-5.5",
+        "options": [
+          {
+            "value": "auto",
+            "name": "Auto"
+          },
+          {
+            "value": "auto",
+            "name": "Auto"
+          },
+          {
+            "value": "claude-sonnet-5.5",
+            "name": "Claude Sonnet 5.5"
+          },
+          {
+            "value": "claude-sonnet-5",
+            "name": "Claude Sonnet 5"
+          },
+          {
+            "value": "claude-fable-5.1",
+            "name": "Claude Fable 5.1"
+          },
+          {
+            "value": "claude-fable-5",
+            "name": "Claude Fable 5"
+          },
+          {
+            "value": "claude-opus-5.5",
+            "name": "Claude Opus 5.5"
+          },
+          {
+            "value": "claude-opus-5",
+            "name": "Claude Opus 5"
+          },
+          {
+            "value": "claude-opus-4.8",
+            "name": "Claude Opus 4.8"
+          },
+          {
+            "value": "claude-opus-4.8-fast",
+            "name": "Claude Opus 4.8 fast"
+          },
+          {
+            "value": "claude-haiku-5.5",
+            "name": "Claude Haiku 5.5"
+          },
+          {
+            "value": "claude-haiku-4.5",
+            "name": "Claude Haiku 4.5"
+          },
+          {
+            "value": "gpt-6.1-sol",
+            "name": "GPT-6.1 Sol"
+          },
+          {
+            "value": "gpt-6.1-terra",
+            "name": "GPT-6.1 Terra"
+          },
+          {
+            "value": "gpt-6-sol",
+            "name": "GPT-6 Sol"
+          },
+          {
+            "value": "gpt-6-luna",
+            "name": "GPT-6 Luna"
+          },
+          {
+            "value": "gpt-6-astra",
+            "name": "GPT-6 Astra"
+          },
+          {
+            "value": "gpt-5.6-sol",
+            "name": "GPT-5.6 Sol"
+          },
+          {
+            "value": "gpt-5.6-terra",
+            "name": "GPT-5.6 Terra"
+          },
+          {
+            "value": "gpt-5.6-luna",
+            "name": "GPT-5.6 Luna"
+          },
+          {
+            "value": "gpt-5.3-codex",
+            "name": "GPT-5.3-Codex"
+          },
+          {
+            "value": "gemini-4-argon",
+            "name": "Gemini 4 Argon"
+          },
+          {
+            "value": "gemini-3.8-flash",
+            "name": "Gemini 3.8 Flash"
+          },
+          {
+            "value": "grok-4.7",
+            "name": "Grok 4.7"
+          },
+          {
+            "value": "grok-4.6",
+            "name": "Grok 4.6"
+          },
+          {
+            "value": "kimi-k3",
+            "name": "Kimi K3"
+          },
+          {
+            "value": "mai-code-1.1-flash",
+            "name": "MAI-Code-1.1-Flash"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "reasoning_effort",
+        "name": "Reasoning effort",
+        "category": "thought_level",
+        "currentValue": "medium",
+        "options": [
+          {
+            "value": "low",
+            "name": "low"
+          },
+          {
+            "value": "medium",
+            "name": "medium"
+          },
+          {
+            "value": "high",
+            "name": "high"
+          },
+          {
+            "value": "xhigh",
+            "name": "xhigh"
+          },
+          {
+            "value": "max",
+            "name": "max"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "allow_all",
+        "name": "Allow all",
+        "category": "permissions",
+        "currentValue": "off",
+        "options": [
+          {
+            "value": "on",
+            "name": "On"
+          },
+          {
+            "value": "off",
+            "name": "Off"
+          }
+        ]
+      }
+    ],
+    "models": {
+      "availableModels": [
+        {
+          "modelId": "auto",
+          "name": "Auto"
+        },
+        {
+          "modelId": "claude-sonnet-5.5",
+          "name": "Claude Sonnet 5.5",
+          "_meta": {
+            "copilotUsage": "1x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "medium"
+          }
+        },
+        {
+          "modelId": "claude-sonnet-5",
+          "name": "Claude Sonnet 5",
+          "_meta": {
+            "copilotUsage": "1x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "medium"
+          }
+        },
+        {
+          "modelId": "claude-fable-5.1",
+          "name": "Claude Fable 5.1",
+          "_meta": {
+            "copilotUsage": "1x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "medium"
+          }
+        },
+        {
+          "modelId": "claude-fable-5",
+          "name": "Claude Fable 5",
+          "_meta": {
+            "copilotUsage": "1x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "medium"
+          }
+        },
+        {
+          "modelId": "claude-opus-5.5",
+          "name": "Claude Opus 5.5",
+          "_meta": {
+            "copilotUsage": "15x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "high"
+          }
+        },
+        {
+          "modelId": "claude-opus-5",
+          "name": "Claude Opus 5",
+          "_meta": {
+            "copilotUsage": "15x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "high"
+          }
+        },
+        {
+          "modelId": "claude-opus-4.8",
+          "name": "Claude Opus 4.8",
+          "_meta": {
+            "copilotUsage": "14x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "high"
+          }
+        },
+        {
+          "modelId": "claude-opus-4.8-fast",
+          "name": "Claude Opus 4.8 fast",
+          "_meta": {
+            "copilotUsage": "30x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "very_high"
+          }
+        },
+        {
+          "modelId": "claude-haiku-5.5",
+          "name": "Claude Haiku 5.5",
+          "_meta": {
+            "copilotUsage": "0.33x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "low"
+          }
+        },
+        {
+          "modelId": "claude-haiku-4.5",
+          "name": "Claude Haiku 4.5",
+          "_meta": {
+            "copilotUsage": "0.33x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "low"
+          }
+        },
+        {
+          "modelId": "gpt-6.1-sol",
+          "name": "GPT-6.1 Sol",
+          "_meta": {
+            "copilotUsage": "1x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "medium"
+          }
+        },
+        {
+          "modelId": "gpt-6.1-terra",
+          "name": "GPT-6.1 Terra",
+          "_meta": {
+            "copilotUsage": "1x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "medium"
+          }
+        },
+        {
+          "modelId": "gpt-6-sol",
+          "name": "GPT-6 Sol",
+          "_meta": {
+            "copilotUsage": "1x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "medium"
+          }
+        },
+        {
+          "modelId": "gpt-6-luna",
+          "name": "GPT-6 Luna",
+          "_meta": {
+            "copilotUsage": "0.33x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "low"
+          }
+        },
+        {
+          "modelId": "gpt-6-astra",
+          "name": "GPT-6 Astra",
+          "_meta": {
+            "copilotUsage": "14x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "high"
+          }
+        },
+        {
+          "modelId": "gpt-5.6-sol",
+          "name": "GPT-5.6 Sol",
+          "_meta": {
+            "copilotUsage": "1x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "medium"
+          }
+        },
+        {
+          "modelId": "gpt-5.6-terra",
+          "name": "GPT-5.6 Terra",
+          "_meta": {
+            "copilotUsage": "1x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "medium"
+          }
+        },
+        {
+          "modelId": "gpt-5.6-luna",
+          "name": "GPT-5.6 Luna",
+          "_meta": {
+            "copilotUsage": "0.33x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "low"
+          }
+        },
+        {
+          "modelId": "gpt-5.3-codex",
+          "name": "GPT-5.3-Codex",
+          "_meta": {
+            "copilotUsage": "1x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "medium"
+          }
+        },
+        {
+          "modelId": "gemini-4-argon",
+          "name": "Gemini 4 Argon",
+          "_meta": {
+            "copilotUsage": "1x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "medium"
+          }
+        },
+        {
+          "modelId": "gemini-3.8-flash",
+          "name": "Gemini 3.8 Flash",
+          "_meta": {
+            "copilotUsage": "14x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "low"
+          }
+        },
+        {
+          "modelId": "grok-4.7",
+          "name": "Grok 4.7",
+          "_meta": {
+            "copilotUsage": "1x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "medium"
+          }
+        },
+        {
+          "modelId": "grok-4.6",
+          "name": "Grok 4.6",
+          "_meta": {
+            "copilotUsage": "1x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "medium"
+          }
+        },
+        {
+          "modelId": "kimi-k3",
+          "name": "Kimi K3",
+          "_meta": {
+            "copilotUsage": "1x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "medium"
+          }
+        },
+        {
+          "modelId": "mai-code-1.1-flash",
+          "name": "MAI-Code-1.1-Flash",
+          "_meta": {
+            "copilotUsage": "0.33x",
+            "copilotEnablement": "enabled",
+            "copilotPriceCategory": "low"
+          }
+        }
+      ],
+      "currentModelId": "claude-sonnet-5.5"
+    }
+  },
+  "loadReplay": [
+    {
+      "sessionUpdate": "user_message_chunk",
+      "content": {
+        "type": "text",
+        "text": "Run the shell command: echo hi"
+      }
+    },
+    {
+      "sessionUpdate": "tool_call",
+      "toolCallId": "call_old",
+      "title": "Run echo hi command",
+      "kind": "execute",
+      "status": "pending",
+      "rawInput": {
+        "command": "echo hi"
+      }
+    },
+    {
+      "sessionUpdate": "tool_call_update",
+      "toolCallId": "call_old",
+      "status": "completed",
+      "content": [
+        {
+          "type": "content",
+          "content": {
+            "type": "text",
+            "text": "hi\n<shellId: 0 completed with exit code 0>"
+          }
+        }
+      ]
+    },
+    {
+      "sessionUpdate": "agent_message_chunk",
+      "content": {
+        "type": "text",
+        "text": "The output of `echo hi` is: hi"
+      }
+    }
+  ],
+  "loadResult": {
+    "modes": {
+      "availableModes": [
+        {
+          "id": "https://agentclientprotocol.com/protocol/session-modes#agent",
+          "name": "Agent"
+        },
+        {
+          "id": "https://agentclientprotocol.com/protocol/session-modes#plan",
+          "name": "Plan"
+        }
+      ],
+      "currentModeId": "https://agentclientprotocol.com/protocol/session-modes#agent"
+    }
+  },
+  "turns": {
+    "echo": [
+      {
+        "update": {
+          "sessionUpdate": "usage_update",
+          "used": 9238,
+          "size": 60000
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "agent_thought_chunk",
+          "content": {
+            "type": "text",
+            "text": "The user wants me to run "
+          }
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "agent_thought_chunk",
+          "content": {
+            "type": "text",
+            "text": "echo hi."
+          }
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "tool_call",
+          "toolCallId": "call_3386e1l7",
+          "title": "Run echo hi command",
+          "kind": "execute",
+          "status": "pending",
+          "rawInput": {
+            "command": "echo hi",
+            "description": "Run echo hi command"
+          }
+        }
+      },
+      {
+        "request": {
+          "method": "session/request_permission",
+          "params": {
+            "toolCall": {
+              "toolCallId": "call_3386e1l7",
+              "title": "Run echo hi command",
+              "kind": "execute",
+              "status": "pending",
+              "rawInput": {
+                "command": "echo hi",
+                "commands": [
+                  "echo hi"
+                ]
+              }
+            },
+            "options": [
+              {
+                "optionId": "allow_once",
+                "kind": "allow_once",
+                "name": "Allow once"
+              },
+              {
+                "optionId": "allow_always",
+                "kind": "allow_always",
+                "name": "Always allow"
+              },
+              {
+                "optionId": "reject_once",
+                "kind": "reject_once",
+                "name": "Deny"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "tool_call_update",
+          "toolCallId": "call_3386e1l7",
+          "content": [
+            {
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": "hi\n"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "tool_call_update",
+          "toolCallId": "call_3386e1l7",
+          "status": "completed",
+          "content": [
+            {
+              "type": "content",
+              "content": {
+                "type": "text",
+                "text": "hi\n<shellId: 0 completed with exit code 0>"
+              }
+            }
+          ],
+          "rawOutput": {
+            "content": "hi\n<shellId: 0 completed with exit code 0>",
+            "contents": [
+              {
+                "type": "shell_exit",
+                "shellId": "0",
+                "exitCode": 0,
+                "cwd": "/tmp/ws",
+                "outputPreview": "hi\n"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "usage_update",
+          "used": 9334,
+          "size": 60000
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "agent_message_chunk",
+          "content": {
+            "type": "text",
+            "text": "The output "
+          }
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "agent_message_chunk",
+          "content": {
+            "type": "text",
+            "text": "is hi"
+          }
+        }
+      },
+      {
+        "result": {
+          "stopReason": "end_turn",
+          "usage": {
+            "inputTokens": 29758,
+            "outputTokens": 371,
+            "totalTokens": 30129,
+            "cachedReadTokens": 19940,
+            "cachedWriteTokens": 0
+          }
+        }
+      }
+    ],
+    "again": [
+      {
+        "update": {
+          "sessionUpdate": "usage_update",
+          "used": 9500,
+          "size": 60000
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "agent_message_chunk",
+          "content": {
+            "type": "text",
+            "text": "Still here."
+          }
+        }
+      },
+      {
+        "result": {
+          "stopReason": "end_turn",
+          "usage": {
+            "inputTokens": 50085,
+            "outputTokens": 464,
+            "totalTokens": 50549,
+            "cachedReadTokens": 39785,
+            "cachedWriteTokens": 0
+          }
+        }
+      }
+    ],
+    "read": [
+      {
+        "update": {
+          "sessionUpdate": "tool_call",
+          "toolCallId": "call_z8mciuzc",
+          "title": "Viewing /tmp/elsewhere/hello.txt",
+          "kind": "read",
+          "status": "pending",
+          "rawInput": {
+            "path": "/tmp/elsewhere/hello.txt"
+          },
+          "locations": [
+            {
+              "path": "/tmp/elsewhere/hello.txt"
+            }
+          ]
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "tool_call_update",
+          "toolCallId": "call_z8mciuzc",
+          "status": "failed",
+          "rawOutput": {
+            "message": "Path does not exist",
+            "code": "failure"
+          }
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "tool_call",
+          "toolCallId": "call_85p9y6u4",
+          "title": "Viewing /tmp/ws/hello.txt",
+          "kind": "read",
+          "status": "pending",
+          "rawInput": {
+            "path": "/tmp/ws/hello.txt"
+          },
+          "locations": [
+            {
+              "path": "/tmp/ws/hello.txt"
+            }
+          ]
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "tool_call_update",
+          "toolCallId": "call_85p9y6u4",
+          "status": "completed",
+          "rawOutput": {
+            "content": "hello from rudder probe\nline two\n",
+            "detailedContent": "diff --git a/tmp/ws/hello.txt b/tmp/ws/hello.txt\n"
+          }
+        }
+      },
+      {
+        "result": {
+          "stopReason": "end_turn"
+        }
+      }
+    ],
+    "deny": [
+      {
+        "update": {
+          "sessionUpdate": "tool_call",
+          "toolCallId": "call_u55agou7",
+          "title": "Echo hi",
+          "kind": "execute",
+          "status": "pending",
+          "rawInput": {
+            "command": "echo hi"
+          }
+        }
+      },
+      {
+        "request": {
+          "method": "session/request_permission",
+          "params": {
+            "toolCall": {
+              "toolCallId": "call_u55agou7",
+              "title": "Echo hi",
+              "kind": "execute",
+              "status": "pending",
+              "rawInput": {
+                "command": "echo hi",
+                "commands": [
+                  "echo hi"
+                ]
+              }
+            },
+            "options": [
+              {
+                "optionId": "allow_once",
+                "kind": "allow_once",
+                "name": "Allow once"
+              },
+              {
+                "optionId": "allow_always",
+                "kind": "allow_always",
+                "name": "Always allow"
+              },
+              {
+                "optionId": "reject_once",
+                "kind": "reject_once",
+                "name": "Deny"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "tool_call_update",
+          "toolCallId": "call_u55agou7",
+          "status": "failed",
+          "rawOutput": {
+            "message": "The user rejected this tool call.",
+            "code": "rejected"
+          }
+        }
+      },
+      {
+        "result": {
+          "stopReason": "end_turn"
+        }
+      }
+    ],
+    "slow cancel": [
+      {
+        "update": {
+          "sessionUpdate": "usage_update",
+          "used": 9300,
+          "size": 60000
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "agent_message_chunk",
+          "content": {
+            "type": "text",
+            "text": "Working"
+          }
+        }
+      },
+      {
+        "waitCancel": true
+      },
+      {
+        "sleep": 450
+      },
+      {
+        "result": {
+          "stopReason": "cancelled",
+          "usage": {
+            "inputTokens": 30000,
+            "outputTokens": 400,
+            "totalTokens": 30400,
+            "cachedReadTokens": 20000,
+            "cachedWriteTokens": 0
+          }
+        }
+      }
+    ],
+    "cancel me": [
+      {
+        "update": {
+          "sessionUpdate": "tool_call",
+          "toolCallId": "call_4rjpsqb5",
+          "title": "Run echo hi command",
+          "kind": "execute",
+          "status": "pending",
+          "rawInput": {
+            "command": "echo hi"
+          }
+        }
+      },
+      {
+        "request": {
+          "method": "session/request_permission",
+          "params": {
+            "toolCall": {
+              "toolCallId": "call_4rjpsqb5",
+              "title": "Run echo hi command",
+              "kind": "execute",
+              "status": "pending",
+              "rawInput": {
+                "command": "echo hi",
+                "commands": [
+                  "echo hi"
+                ]
+              }
+            },
+            "options": [
+              {
+                "optionId": "allow_once",
+                "kind": "allow_once",
+                "name": "Allow once"
+              },
+              {
+                "optionId": "allow_always",
+                "kind": "allow_always",
+                "name": "Always allow"
+              },
+              {
+                "optionId": "reject_once",
+                "kind": "reject_once",
+                "name": "Deny"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "waitCancel": true
+      },
+      {
+        "result": {
+          "stopReason": "cancelled",
+          "usage": {
+            "inputTokens": 9659,
+            "outputTokens": 59,
+            "totalTokens": 9718,
+            "cachedReadTokens": 9210,
+            "cachedWriteTokens": 0
+          }
+        }
+      }
+    ],
+    "write": [
+      {
+        "update": {
+          "sessionUpdate": "tool_call",
+          "toolCallId": "call_artbipt5",
+          "title": "Creating /tmp/ws/note.txt",
+          "kind": "edit",
+          "status": "pending",
+          "rawInput": {
+            "path": "/tmp/ws/note.txt",
+            "file_text": "ok\n"
+          },
+          "locations": [
+            {
+              "path": "/tmp/ws/note.txt"
+            }
+          ],
+          "content": [
+            {
+              "type": "diff",
+              "path": "/tmp/ws/note.txt",
+              "oldText": "",
+              "newText": "ok\n"
+            }
+          ]
+        }
+      },
+      {
+        "request": {
+          "method": "session/request_permission",
+          "params": {
+            "toolCall": {
+              "toolCallId": "call_artbipt5",
+              "title": "Create file",
+              "kind": "edit",
+              "status": "pending",
+              "rawInput": {
+                "fileName": "/tmp/ws/note.txt",
+                "diff": "--- a/dev/null\n+++ b/tmp/ws/note.txt\n@@ -1,0 +1,1 @@\n+ok\n"
+              },
+              "locations": [
+                {
+                  "path": "/tmp/ws/note.txt"
+                }
+              ]
+            },
+            "options": [
+              {
+                "optionId": "allow_once",
+                "kind": "allow_once",
+                "name": "Allow once"
+              },
+              {
+                "optionId": "allow_always",
+                "kind": "allow_always",
+                "name": "Always allow"
+              },
+              {
+                "optionId": "reject_once",
+                "kind": "reject_once",
+                "name": "Deny"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "agent_message_chunk",
+          "content": {
+            "type": "text",
+            "text": "Info: /tmp/ws/note.txt"
+          }
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "tool_call_update",
+          "toolCallId": "call_artbipt5",
+          "status": "completed",
+          "content": [
+            {
+              "type": "diff",
+              "path": "/tmp/ws/note.txt",
+              "oldText": "",
+              "newText": "ok\n"
+            }
+          ],
+          "rawOutput": {
+            "content": "Created file /tmp/ws/note.txt with 3 characters"
+          }
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "agent_message_chunk",
+          "content": {
+            "type": "text",
+            "text": "File created."
+          }
+        }
+      },
+      {
+        "result": {
+          "stopReason": "end_turn"
+        }
+      }
+    ]
+  },
+  "refuseEffortFor": ["claude-sonnet-5.5"]
+}

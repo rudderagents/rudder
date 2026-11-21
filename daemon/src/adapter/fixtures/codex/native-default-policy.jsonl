@@ -1,0 +1,8 @@
+{"expect": "initialize", "result": {}}
+{"expect": "initialized"}
+{"expect": "config/read", "result": {"config": {"approval_policy": null, "sandbox_mode": null}}}
+{"expect": "thread/start", "result": {"thread": {"id": "thr-policy-probe"}, "approvalPolicy": "on-request", "sandbox": {"type": "readOnly", "networkAccess": false}, "approvalsReviewer": "user"}}
+{"expect": "thread/unsubscribe", "result": {}}
+{"expect": "thread/resume", "result": {"thread": {"id": "thr-native"}}}
+{"expect": "turn/start", "result": {"turn": {"id": "t1", "status": "inProgress"}}}
+{"send": {"method": "turn/completed", "params": {"threadId": "thr-native", "turn": {"id": "t1", "status": "completed", "error": null}}}}

@@ -1,0 +1,11 @@
+{"expect":"initialize","result":{"userAgent":"rudder/0.163.0","codexHome":"/tmp/codex-home","platformFamily":"unix","platformOs":"macos"}}
+{"expect":"initialized"}
+{"expect":"thread/start","result":{"thread":{"id":"thr-withdraw","sessionId":"thr-withdraw","cwd":"/tmp/ws","status":{"type":"idle"},"turns":[]},"model":"gpt-6-luna","modelProvider":"openai","cwd":"/tmp/ws","approvalPolicy":"untrusted","approvalsReviewer":"user","sandbox":{"type":"workspaceWrite","writableRoots":[],"networkAccess":false,"excludeTmpdirEnvVar":false,"excludeSlashTmp":false},"reasoningEffort":"low"}}
+{"expect":"turn/start","result":{"turn":{"id":"turn-w1","rootTurnId":"turn-w1","items":[],"itemsView":"notLoaded","status":"inProgress","error":null}}}
+{"send":{"method":"turn/started","params":{"threadId":"thr-withdraw","turn":{"id":"turn-w1","rootTurnId":"turn-w1","items":[],"itemsView":"notLoaded","status":"inProgress","error":null}}}}
+{"send":{"method":"item/started","params":{"threadId":"thr-withdraw","turnId":"turn-w1","item":{"type":"commandExecution","id":"exec-w1","pluginId":null,"scriptPath":null,"command":"/bin/zsh -lc 'echo hi'","cwd":"/tmp/ws","processId":null,"source":"agent","status":"inProgress","commandActions":[{"type":"unknown","command":"echo hi"}],"aggregatedOutput":null,"exitCode":null,"durationMs":null},"startedAtMs":1}}}
+{"send":{"id":0,"method":"item/commandExecution/requestApproval","params":{"kind":"command","threadId":"thr-withdraw","turnId":"turn-w1","itemId":"exec-w1","startedAtMs":1,"environmentId":"local","command":"/bin/zsh -lc 'echo hi'","cwd":"/tmp/ws","commandActions":[{"type":"unknown","command":"echo hi"}],"proposedExecpolicyAmendment":["echo","hi"],"availableDecisions":["accept",{"acceptWithExecpolicyAmendment":{"execpolicy_amendment":["echo","hi"]}},"cancel"]}}}
+{"sleep":50}
+{"send":{"method":"serverRequest/resolved","params":{"threadId":"thr-withdraw","requestId":0}}}
+{"sleep":100}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-withdraw","turn":{"id":"turn-w1","rootTurnId":"turn-w1","items":[],"itemsView":"notLoaded","status":"interrupted","error":null}}}}

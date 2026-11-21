@@ -1,0 +1,31 @@
+{"recorded":{"cli":"pi 1.5.2","at":"2026-11-17T06:47:21.112Z","scenario":"fork","error":"session/fork: {\"code\":-32601,\"message\":\"\\\"Method not found\\\": session/fork\",\"data\":{\"method\":\"session/fork\"}}"}}
+{"dir":"spawn","argv":["npx","-y","pi-acp@0.0.34"]}
+{"dir":"in","frame":{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":1,"clientCapabilities":{"fs":{"readTextFile":false,"writeTextFile":false},"terminal":false},"clientInfo":{"name":"rudderd","version":"0.1.0"}}}}
+{"dir":"out","frame":{"jsonrpc":"2.0","id":1,"result":{"protocolVersion":1,"agentInfo":{"name":"pi-acp","title":"pi ACP adapter","version":"0.0.34"},"authMethods":[{"id":"pi_terminal_login","name":"Launch pi in the terminal","description":"Start pi in an interactive terminal to configure API keys or login","type":"terminal","args":["--terminal-login"],"env":{}}],"agentCapabilities":{"loadSession":true,"mcpCapabilities":{"http":false,"sse":false},"promptCapabilities":{"image":true,"audio":false,"embeddedContext":false},"sessionCapabilities":{"list":{},"delete":{}}}}}}
+{"dir":"in","frame":{"jsonrpc":"2.0","id":2,"method":"session/new","params":{"cwd":"$CWD","mcpServers":[]}}}
+{"dir":"out","frame":{"jsonrpc":"2.0","id":2,"result":{"sessionId":"00000000-0000-4000-8000-000000000001","configOptions":[{"type":"select","id":"model","category":"model","name":"Model","description":"Select the model for this session","currentValue":"deepseek/deepseek-flash","options":[{"value":"deepseek/deepseek-flash","name":"deepseek/DeepSeek V4.1 Flash","description":null},{"value":"deepseek/deepseek-v4-pro","name":"deepseek/DeepSeek V4 Pro","description":null}]},{"type":"select","id":"thought_level","category":"thought_level","name":"Thinking","description":"Set the reasoning effort for this session","currentValue":"high","options":[{"value":"off","name":"Thinking: off","description":null},{"value":"low","name":"Thinking: low","description":null},{"value":"high","name":"Thinking: high","description":null},{"value":"max","name":"Thinking: max","description":null}]}],"models":{"availableModels":[{"modelId":"deepseek/deepseek-flash","name":"deepseek/DeepSeek V4.1 Flash","description":null},{"modelId":"deepseek/deepseek-v4-pro","name":"deepseek/DeepSeek V4 Pro","description":null}],"currentModelId":"deepseek/deepseek-flash"},"modes":{"currentModeId":"high","availableModes":[{"id":"off","name":"Thinking: off","description":null},{"id":"low","name":"Thinking: low","description":null},{"id":"high","name":"Thinking: high","description":null},{"id":"max","name":"Thinking: max","description":null}]},"_meta":{"piAcp":{"startupInfo":"pi v1.5.2\n---\n"}}}}}
+{"dir":"in","frame":{"jsonrpc":"2.0","id":3,"method":"session/prompt","params":{"sessionId":"00000000-0000-4000-8000-000000000001","prompt":[{"type":"text","text":"Remember the word lantern. Reply ok."}]}}}
+{"dir":"out","frame":{"jsonrpc":"2.0","method":"session/update","params":{"sessionId":"00000000-0000-4000-8000-000000000001","update":{"sessionUpdate":"session_info_update","_meta":{"piAcp":{"queueDepth":0,"running":true}}}}}}
+{"dir":"out","frame":{"jsonrpc":"2.0","method":"session/update","params":{"sessionId":"00000000-0000-4000-8000-000000000001","update":{"sessionUpdate":"agent_message_chunk","content":{"type":"text","text":"pi v1.5.2\n---\n"}}}}}
+{"dir":"out","frame":{"jsonrpc":"2.0","method":"session/update","params":{"sessionId":"00000000-0000-4000-8000-000000000001","update":{"sessionUpdate":"usage_update","used":1347,"size":1000000}}}}
+{"dir":"out","frame":{"jsonrpc":"2.0","method":"session/update","params":{"sessionId":"00000000-0000-4000-8000-000000000001","update":{"sessionUpdate":"available_commands_update","availableCommands":[{"name":"compact","description":"Manually compact the session context","input":{"hint":"optional custom instructions"}},{"name":"autocompact","description":"Toggle automatic context compaction","input":{"hint":"on|off|toggle"}},{"name":"export","description":"Export session to an HTML file in the session cwd"},{"name":"session","description":"Show session stats (messages, tokens, cost, session file)"},{"name":"name","description":"Set session display name","input":{"hint":"<name>"}},{"name":"steering","description":"Get/set pi steering message delivery mode (how queued steering messages are delivered)","input":{"hint":"(no args to show) all | one-at-a-time"}},{"name":"follow-up","description":"Get/set pi follow-up message delivery mode (how queued follow-up messages are delivered)","input":{"hint":"(no args to show) all | one-at-a-time"}},{"name":"changelog","description":"Show pi changelog"}]}}}}
+{"dir":"out","frame":{"jsonrpc":"2.0","method":"session/update","params":{"sessionId":"00000000-0000-4000-8000-000000000001","update":{"sessionUpdate":"agent_message_chunk","content":{"type":"text","text":"ok"}}}}}
+{"dir":"out","frame":{"jsonrpc":"2.0","method":"session/update","params":{"sessionId":"00000000-0000-4000-8000-000000000001","update":{"sessionUpdate":"usage_update","used":1589,"size":1000000}}}}
+{"dir":"out","frame":{"jsonrpc":"2.0","method":"session/update","params":{"sessionId":"00000000-0000-4000-8000-000000000001","update":{"sessionUpdate":"session_info_update","_meta":{"piAcp":{"queueDepth":0,"running":false}}}}}}
+{"dir":"out","frame":{"jsonrpc":"2.0","id":3,"result":{"stopReason":"end_turn"}}}
+{"dir":"in","frame":{"jsonrpc":"2.0","id":4,"method":"session/fork","params":{"sessionId":"00000000-0000-4000-8000-000000000001","cwd":"$CWD","mcpServers":[]}}}
+{"dir":"err","text":"Error handling request {"}
+{"dir":"err","text":"  jsonrpc: '2.0',"}
+{"dir":"err","text":"  id: 4,"}
+{"dir":"err","text":"  method: 'session/fork',"}
+{"dir":"err","text":"  params: {"}
+{"dir":"err","text":"    sessionId: '00000000-0000-4000-8000-000000000001',"}
+{"dir":"err","text":"    cwd: '$CWD',"}
+{"dir":"err","text":"    mcpServers: []"}
+{"dir":"err","text":"  }"}
+{"dir":"err","text":"} {"}
+{"dir":"err","text":"  code: -32601,"}
+{"dir":"err","text":"  message: '\"Method not found\": session/fork',"}
+{"dir":"err","text":"  data: { method: 'session/fork' }"}
+{"dir":"err","text":"}"}
+{"dir":"out","frame":{"jsonrpc":"2.0","id":4,"error":{"code":-32601,"message":"\"Method not found\": session/fork","data":{"method":"session/fork"}}}}

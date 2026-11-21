@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Hardened-runtime entitlements for the single-file `rudder` that bun compiles. Measured 2026-10-30 (r59 F-06):
+  without allow-jit JavaScriptCore silently falls back to its interpreter tiers (a CPU loop takes 1.65x as long);
+  allow-unsigned-executable-memory and disable-library-validation are not needed (no difference, no failures).
+-->
+<plist version="1.0">
+<dict>
+  <key>com.apple.security.cs.allow-jit</key>
+  <true/>
+</dict>
+</plist>

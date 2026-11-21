@@ -1,0 +1,8 @@
+{"expect": "initialize", "result": {"userAgent": "rudder/0.169.0"}}
+{"expect": "initialized"}
+{"expect": "thread/start", "result": {"thread": {"id": "thr-edge", "turns": []}}}
+{"expect": "turn/start", "result": {"turn": {"id": "turn-1", "status": "inProgress"}}}
+{"send": {"id": 0, "method": "item/tool/requestUserInput", "params": {"threadId": "thr-edge", "turnId": "turn-1", "itemId": "call-1", "isBlocking": true, "autoResolutionMs": null, "questions": [{"id": "first", "header": "First", "question": "Pick one", "isOther": false, "isSecret": false, "options": null}, {"id": "second", "header": "Second", "question": "Pick one", "isOther": false, "isSecret": false, "options": [{"label": "A", "description": ""}]}]}}}
+{"reply": 0}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-edge", "turnId": "turn-1", "item": {"type": "agentMessage", "id": "m1", "text": "ok"}}}}
+{"send": {"method": "turn/completed", "params": {"threadId": "thr-edge", "turn": {"id": "turn-1", "status": "completed"}}}}

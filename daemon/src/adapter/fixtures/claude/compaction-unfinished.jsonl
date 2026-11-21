@@ -1,0 +1,5 @@
+{"await":"user"}
+{"type":"system","subtype":"init","cwd":"/tmp/ws","session_id":"$SID","model":"claude-opus-5-5","permissionMode":"default","tools":["Bash","Read","Write"]}
+{"type":"system","subtype":"status","status":"compacting","session_id":"$SID"}
+{"type":"system","subtype":"status","status":null,"compact_result":"failed","session_id":"$SID"}
+{"type":"result","subtype":"success","is_error":false,"num_turns":1,"session_id":"$SID","total_cost_usd":0,"usage":{"input_tokens":0,"output_tokens":0},"result":""}

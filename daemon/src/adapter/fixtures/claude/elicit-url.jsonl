@@ -1,0 +1,5 @@
+{"await":"user"}
+{"type":"system","subtype":"init","session_id":"$SID","permissionMode":"$MODE"}
+{"type":"control_request","request_id":"url-fixture","request":{"subtype":"elicitation","mcp_server_name":"fixture","mode":"url","url":"https://example.com/auth","message":"Sign in","elicitationId":"e1"}}
+{"await":"control_response"}
+{"type":"result","subtype":"success","is_error":false,"session_id":"$SID","result":"OK"}

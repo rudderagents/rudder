@@ -1,0 +1,5 @@
+{
+  "exitOnStart": { "code": 1, "stderr": "Error: Device not configured (os error 6)" },
+  "initialize": {},
+  "turns": {}
+}

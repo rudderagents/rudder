@@ -1,0 +1,145 @@
+{
+  "initialize": {
+    "protocolVersion": 1,
+    "agentCapabilities": {
+      "loadSession": true,
+      "promptCapabilities": {
+        "image": false
+      }
+    },
+    "authMethods": [
+      {
+        "id": "cached_token",
+        "name": "cached_token"
+      }
+    ]
+  },
+  "newSession": {
+    "configOptions": [],
+    "_meta": {
+      "isGitRepo": false
+    }
+  },
+  "turns": {
+    "late": [
+      {
+        "update": {
+          "sessionUpdate": "agent_message_chunk",
+          "content": {
+            "type": "text",
+            "text": "已经在后台开始"
+          }
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "tool_call",
+          "toolCallId": "call-bg",
+          "title": "run_terminal_command",
+          "rawInput": {
+            "command": "sleep 20 && echo BG_DONE",
+            "is_background": false,
+            "block_until_ms": 0
+          },
+          "_meta": {
+            "x.ai/tool": {
+              "name": "run_terminal_command",
+              "kind": "execute"
+            }
+          }
+        }
+      },
+      {
+        "notify": {
+          "method": "_x.ai/task_backgrounded",
+          "params": {
+            "sessionId": "sess-1",
+            "update": {
+              "sessionUpdate": "task_backgrounded",
+              "tool_call_id": "call-bg",
+              "task_id": "a2eb8f22-bb85-4674-991f-d877982ceb46",
+              "command": "sleep 20 && echo BG_DONE"
+            }
+          }
+        }
+      },
+      {
+        "notify": {
+          "method": "_x.ai/session_notification",
+          "params": {
+            "sessionId": "sess-1",
+            "update": {
+              "sessionUpdate": "background_tasks",
+              "tasks": [
+                {
+                  "task_id": "a2eb8f22-bb85-4674-991f-d877982ceb46",
+                  "status": "running",
+                  "command": "sleep 20 && echo BG_DONE"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "update": {
+          "sessionUpdate": "tool_call_update",
+          "toolCallId": "call-bg",
+          "status": "completed",
+          "title": "[bg] sleep 20 && echo BG_DONE",
+          "rawOutput": {
+            "type": "BackgroundTaskStarted",
+            "task_id": "a2eb8f22-bb85-4674-991f-d877982ceb46",
+            "status": "running"
+          }
+        }
+      },
+      {
+        "notify": {
+          "method": "_x.ai/session_notification",
+          "params": {
+            "sessionId": "sess-1",
+            "update": {
+              "sessionUpdate": "background_tasks",
+              "tasks": [
+                {
+                  "task_id": "a2eb8f22-bb85-4674-991f-d877982ceb46",
+                  "status": "completed",
+                  "exit_code": 0
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "result": {
+          "stopReason": "end_turn"
+        },
+        "continue": true
+      },
+      {
+        "sleep": 80
+      },
+      {
+        "notify": {
+          "method": "session/update",
+          "params": {
+            "sessionId": "sess-1",
+            "update": {
+              "sessionUpdate": "agent_message_chunk",
+              "content": {
+                "type": "text",
+                "text": "LATE_FINAL"
+              }
+            },
+            "_meta": {
+              "eventId": "sess-1-late",
+              "promptId": "task-completed-a2eb8f22-bb85-4674-991f-d877982ceb46"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

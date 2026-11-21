@@ -1,0 +1,10 @@
+{"expect":"initialize","result":{}}
+{"expect":"initialized"}
+{"expect":"thread/start","result":{"thread":{"id":"thr-native"}}}
+{"expect":"turn/start","result":{"turn":{"id":"t1","status":"inProgress"}}}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-native","turn":{"id":"t1","status":"completed","error":null}}}}
+{"expect":"thread/unsubscribe","result":{}}
+{"expect":"config/read","result":{"config":{"approval_policy":"never","sandbox_mode":"danger-full-access","approvals_reviewer":"user"}}}
+{"expect":"thread/resume","result":{"thread":{"id":"thr-native"}}}
+{"expect":"turn/start","result":{"turn":{"id":"t2","status":"inProgress"}}}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-native","turn":{"id":"t2","status":"completed","error":null}}}}

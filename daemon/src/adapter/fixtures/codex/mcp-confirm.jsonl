@@ -1,0 +1,8 @@
+{"expect": "initialize", "result": {"userAgent": "rudder/0.169.0"}}
+{"expect": "initialized"}
+{"expect": "thread/start", "result": {"thread": {"id": "thr-confirm", "turns": []}}}
+{"expect": "turn/start", "result": {"turn": {"id": "turn-1", "status": "inProgress"}}}
+{"send": {"id": 0, "method": "mcpServer/elicitation/request", "params": {"threadId": "thr-confirm", "turnId": "turn-1", "serverName": "probe", "mode": "form", "_meta": null, "message": "Proceed with the deploy?", "requestedSchema": {"type": "object", "properties": {}}}}}
+{"reply": 0}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-confirm", "turnId": "turn-1", "item": {"type": "agentMessage", "id": "m1", "text": "ok"}}}}
+{"send": {"method": "turn/completed", "params": {"threadId": "thr-confirm", "turn": {"id": "turn-1", "status": "completed"}}}}

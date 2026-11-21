@@ -1,0 +1,17 @@
+.DS_Store
+node_modules/
+.bun/
+daemon/dist/
+.build/
+.swiftpm/
+DerivedData/
+xcuserdata/
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+.env
+.env.*
+*.p8
+*.p12
+*.cer
+*.mobileprovision

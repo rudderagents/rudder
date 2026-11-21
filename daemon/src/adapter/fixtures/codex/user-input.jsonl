@@ -1,0 +1,8 @@
+{"expect": "initialize", "result": {"userAgent": "rudder/0.169.0"}}
+{"expect": "initialized"}
+{"expect": "thread/start", "result": {"thread": {"id": "thr-ask", "turns": []}}}
+{"expect": "turn/start", "result": {"turn": {"id": "turn-1", "status": "inProgress"}}}
+{"send": {"id": 0, "method": "item/tool/requestUserInput", "params": {"threadId": "thr-ask", "turnId": "turn-1", "itemId": "call-1", "isBlocking": false, "autoResolutionMs": null, "questions": [{"id": "color_choice", "header": "Color", "question": "Which color do you prefer: red or blue?", "isOther": true, "isSecret": false, "options": [{"label": "Red", "description": "Choose red."}, {"label": "Blue", "description": "Choose blue."}]}, {"id": "token", "header": "Token", "question": "Paste your deploy token", "isOther": true, "isSecret": true, "options": null}]}}}
+{"reply": 0}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-ask", "turnId": "turn-1", "item": {"type": "agentMessage", "id": "m1", "text": "Your answer is red."}}}}
+{"send": {"method": "turn/completed", "params": {"threadId": "thr-ask", "turn": {"id": "turn-1", "status": "completed"}}}}

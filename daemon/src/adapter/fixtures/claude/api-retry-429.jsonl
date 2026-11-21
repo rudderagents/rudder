@@ -1,0 +1,5 @@
+{"await":"user"}
+{"type":"system","subtype":"init","cwd":"/tmp/ws","session_id":"$SID","model":"claude-opus-4-8","permissionMode":"default","tools":["Bash","Read"]}
+{"type":"system","subtype":"api_retry","attempt":1,"max_retries":10,"retry_delay_ms":1200,"error_status":429,"error":"rate_limit","session_id":"$SID"}
+{"type":"system","subtype":"api_retry","attempt":2,"max_retries":10,"retry_delay_ms":2400,"error_status":429,"error":"rate_limit","session_id":"$SID"}
+{"type":"result","subtype":"success","is_error":true,"api_error_status":429,"terminal_reason":"api_error","result":"API Error: 429 {\"type\":\"error\",\"error\":{\"type\":\"rate_limit_error\"}} (reset after 1h 2m)","usage":{"input_tokens":2,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":0},"modelUsage":{},"permission_denials":[],"num_turns":1,"session_id":"$SID","total_cost_usd":0}

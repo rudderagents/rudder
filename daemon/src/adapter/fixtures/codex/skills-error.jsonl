@@ -1,0 +1,3 @@
+{"expect": "initialize", "result": {"userAgent": "rudder/0.163.0", "codexHome": "/tmp/codex-home", "platformFamily": "unix", "platformOs": "macos"}}
+{"expect": "initialized"}
+{"expect": "skills/list", "error": {"code": -32000, "message": "skills unavailable"}}

@@ -1,0 +1,14 @@
+{"await":"user"}
+{"type":"system","subtype":"init","cwd":"/tmp/ws","session_id":"$SID","model":"claude-haiku-5-5","permissionMode":"default","tools":["Bash","Task"],"slash_commands":[]}
+{"type":"assistant","message":{"id":"msg_t1","type":"message","role":"assistant","content":[{"type":"tool_use","id":"toolu_agent","name":"Task","input":{"description":"查并发警告","prompt":"Check warnings","subagent_type":"general-purpose","run_in_background":true}}],"stop_reason":null},"parent_tool_use_id":null,"session_id":"$SID"}
+{"type":"system","subtype":"task_started","task_id":"a1","tool_use_id":"toolu_agent","description":"查并发警告","subagent_type":"general-purpose","is_backgrounded":true,"task_type":"local_agent","session_id":"$SID"}
+{"type":"assistant","message":{"id":"msg_t1","type":"message","role":"assistant","content":[{"type":"tool_use","id":"toolu_cmd","name":"Bash","input":{"command":"bun test --watch daemon","description":"Run tests","run_in_background":true}}],"stop_reason":null},"parent_tool_use_id":null,"session_id":"$SID"}
+{"type":"system","subtype":"task_started","task_id":"b2","tool_use_id":"toolu_cmd","description":"Run tests","is_backgrounded":true,"task_type":"local_bash","session_id":"$SID"}
+{"type":"assistant","message":{"id":"msg_t1","type":"message","role":"assistant","content":[{"type":"text","text":"开了两个后台任务"}],"stop_reason":null},"parent_tool_use_id":null,"session_id":"$SID"}
+{"type":"result","subtype":"success","is_error":false,"num_turns":1,"session_id":"$SID","total_cost_usd":0.001,"usage":{"input_tokens":2,"cache_creation_input_tokens":100,"cache_read_input_tokens":100,"output_tokens":8},"modelUsage":{"claude-haiku-5-5":{"outputTokens":8,"costUSD":0.001,"contextWindow":1000000}},"permission_denials":[],"terminal_reason":"completed","result_index":0,"result":"开了两个后台任务","stop_reason":"end_turn"}
+{"sleep":150}
+{"type":"system","subtype":"task_notification","task_id":"a1","tool_use_id":"toolu_agent","status":"completed","output_file":"/tmp/a1","summary":"剩 3 处","session_id":"$SID"}
+{"sleep":150}
+{"type":"system","subtype":"task_notification","task_id":"b2","tool_use_id":"toolu_cmd","status":"failed","output_file":"/tmp/b2","summary":"Background command \"Run tests\" failed with exit code 1","session_id":"$SID"}
+{"type":"assistant","message":{"id":"msg_t2","type":"message","role":"assistant","content":[{"type":"text","text":"测试挂了 1 个"}],"stop_reason":null},"parent_tool_use_id":null,"session_id":"$SID"}
+{"type":"result","subtype":"success","is_error":false,"num_turns":1,"session_id":"$SID","total_cost_usd":0.001,"usage":{"input_tokens":2,"cache_creation_input_tokens":100,"cache_read_input_tokens":100,"output_tokens":8},"modelUsage":{"claude-haiku-5-5":{"outputTokens":8,"costUSD":0.001,"contextWindow":1000000}},"permission_denials":[],"terminal_reason":"completed","result_index":0,"result":"测试挂了 1 个","stop_reason":"end_turn"}

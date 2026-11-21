@@ -1,0 +1,8 @@
+{"expect":"initialize","result":{"userAgent":"rudder/0.163.0"}}
+{"expect":"initialized"}
+{"expect":"account/read","result":{"account":{"type":"chatgpt","email":null,"planType":"pro"},"requiresOpenaiAuth":true}}
+{"expect":"account/read","result":{"account":{"type":"chatgpt","email":null,"planType":"pro"},"requiresOpenaiAuth":true}}
+{"spawn":2}
+{"expect":"initialize","result":{"userAgent":"rudder/0.163.0"}}
+{"expect":"initialized"}
+{"expect":"account/read","result":{"account":{"type":"chatgpt","email":null,"planType":"pro"},"requiresOpenaiAuth":true}}

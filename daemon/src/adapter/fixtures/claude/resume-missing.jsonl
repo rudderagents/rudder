@@ -1,0 +1,3 @@
+{"type":"result","subtype":"error_during_execution","is_error":true,"num_turns":1,"session_id":"$SID","total_cost_usd":0,"usage":{"input_tokens":0,"cache_creation_input_tokens":0,"cache_read_input_tokens":0,"output_tokens":0,"output_tokens_details":{"thinking_tokens":0},"service_tier":"standard"},"modelUsage":{},"permission_denials":[],"terminal_reason":null,"result_index":0,"errors":["No conversation found with session ID: $SID"],"stop_reason":null}
+{"stderr":"No conversation found with session ID: $SID\n"}
+{"exit":1}

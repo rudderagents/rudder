@@ -1,0 +1,5 @@
+{"expect":"initialize","result":{"codexHome":"/fixture/codex"}}
+{"expect":"initialized"}
+{"expect":"config/read","result":{"config":{"mcp_servers":{"probe":{}}}}}
+{"expect":"hooks/list","result":{"data":[{"cwd":"/tmp/ws","hooks":[{"eventName":"sessionStart","enabled":true}],"errors":[]}]}}
+{"expect":"mcpServerStatus/list","result":{"data":[{"name":"probe","runtimeStatus":"connected"}],"nextCursor":null}}

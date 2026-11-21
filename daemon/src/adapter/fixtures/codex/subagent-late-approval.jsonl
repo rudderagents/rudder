@@ -1,0 +1,17 @@
+{"expect":"initialize","result":{"userAgent":"rudder/0.163.0","codexHome":"/tmp/codex-home","platformFamily":"unix","platformOs":"macos"}}
+{"expect":"initialized"}
+{"expect":"thread/start","result":{"thread":{"id":"thr-sub","sessionId":"thr-sub","cwd":"/tmp/ws","status":{"type":"idle"},"turns":[]},"model":"gpt-6-luna","modelProvider":"openai","cwd":"/tmp/ws","approvalPolicy":"untrusted","approvalsReviewer":"user","sandbox":{"type":"workspaceWrite","writableRoots":[],"networkAccess":false,"excludeTmpdirEnvVar":false,"excludeSlashTmp":false},"reasoningEffort":"low"}}
+{"expect": "turn/start", "result": {"turn": {"id": "turn-s1", "rootTurnId": "turn-s1", "items": [], "itemsView": "notLoaded", "status": "inProgress", "error": null}}}
+{"send": {"method": "thread/status/changed", "params": {"threadId": "thr-sub", "status": {"type": "active", "activeFlags": []}}}}
+{"send": {"method": "turn/started", "params": {"threadId": "thr-sub", "turn": {"id": "turn-s1", "rootTurnId": "turn-s1", "items": [], "itemsView": "notLoaded", "status": "inProgress", "error": null}}}}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-sub", "turnId": "turn-s1", "item": {"type": "collabAgentToolCall", "id": "spawn-1", "tool": "spawnAgent", "status": "completed", "senderThreadId": "thr-sub", "receiverThreadIds": ["thr-child"], "prompt": "check", "agentsStates": {}}}}}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-sub", "turnId": "turn-s1", "item": {"type": "agentMessage", "id": "m1", "text": "Spawned.", "phase": "final_answer", "memoryCitation": null, "delivery": null, "questions": null}, "startedAtMs": 1}}}
+{"send": {"method": "thread/status/changed", "params": {"threadId": "thr-sub", "status": {"type": "idle"}}}}
+{"send": {"method": "turn/completed", "params": {"threadId": "thr-sub", "turn": {"id": "turn-s1", "rootTurnId": "turn-s1", "items": [], "itemsView": "full", "status": "completed", "error": null}}}}
+{"send": {"method": "thread/status/changed", "params": {"threadId": "thr-child", "status": {"type": "active", "activeFlags": ["waitingOnApproval"]}}}}
+{"send": {"id": 0, "method": "item/commandExecution/requestApproval", "params": {"kind": "command", "threadId": "thr-child", "turnId": "turn-c1", "itemId": "exec-c1", "startedAtMs": 1, "environmentId": "local", "command": "/bin/zsh -lc 'sleep 20 && echo CHILD_DONE'", "cwd": "/tmp/ws", "commandActions": [{"type": "unknown", "command": "sleep 20 && echo CHILD_DONE"}], "availableDecisions": ["accept", "cancel"]}}}
+{"reply": 0}
+{"send": {"method": "serverRequest/resolved", "params": {"threadId": "thr-child", "requestId": 0}}}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-child", "turnId": "turn-c1", "item": {"type": "agentMessage", "id": "mc", "text": "CHILD_DONE", "phase": "final_answer", "memoryCitation": null, "delivery": null, "questions": null}, "startedAtMs": 1}}}
+{"send": {"method": "thread/status/changed", "params": {"threadId": "thr-child", "status": {"type": "idle"}}}}
+{"send": {"method": "turn/completed", "params": {"threadId": "thr-child", "turn": {"id": "turn-c1", "rootTurnId": "turn-c1", "items": [], "itemsView": "full", "status": "completed", "error": null}}}}

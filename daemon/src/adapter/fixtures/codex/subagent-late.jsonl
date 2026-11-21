@@ -1,0 +1,13 @@
+{"expect": "initialize", "result": {"userAgent": "rudder/0.163.0", "codexHome": "/tmp/codex-home", "platformFamily": "unix", "platformOs": "macos"}}
+{"expect": "initialized"}
+{"expect": "thread/start", "result": {"thread": {"id": "thr-sub", "sessionId": "thr-sub", "cwd": "/tmp/ws", "status": {"type": "idle"}, "turns": []}, "model": "gpt-6-luna", "modelProvider": "openai", "cwd": "/tmp/ws", "approvalPolicy": "untrusted", "approvalsReviewer": "user", "sandbox": {"type": "workspaceWrite", "writableRoots": [], "networkAccess": false, "excludeTmpdirEnvVar": false, "excludeSlashTmp": false}, "reasoningEffort": "low"}}
+{"expect": "turn/start", "result": {"turn": {"id": "turn-s1", "rootTurnId": "turn-s1", "items": [], "itemsView": "notLoaded", "status": "inProgress", "error": null}}}
+{"send": {"method": "turn/started", "params": {"threadId": "thr-sub", "turn": {"id": "turn-s1", "rootTurnId": "turn-s1", "items": [], "itemsView": "notLoaded", "status": "inProgress", "error": null}}}}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-sub", "turnId": "turn-s1", "item": {"type": "collabAgentToolCall", "id": "spawn-1", "tool": "spawnAgent", "status": "completed", "senderThreadId": "thr-sub", "receiverThreadIds": ["thr-child"], "prompt": "check", "agentsStates": {}}}}}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-sub", "turnId": "turn-s1", "item": {"type": "agentMessage", "id": "m1", "text": "Spawned.", "phase": "final_answer"}}}}
+{"send": {"method": "turn/completed", "params": {"threadId": "thr-sub", "turn": {"id": "turn-s1", "items": [], "itemsView": "full", "status": "completed", "error": null}}}}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-child", "turnId": "turn-c1", "item": {"type": "collabAgentToolCall", "id": "spawn-2", "tool": "spawnAgent", "status": "completed", "senderThreadId": "thr-child", "receiverThreadIds": ["thr-grand"], "prompt": "deeper", "agentsStates": {}}}}}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-grand", "turnId": "turn-g1", "item": {"type": "agentMessage", "id": "mg", "text": "GRAND", "phase": "final_answer"}}}}
+{"send": {"method": "turn/completed", "params": {"threadId": "thr-grand", "turn": {"id": "turn-g1", "items": [], "itemsView": "full", "status": "completed", "error": null}}}}
+{"send": {"method": "item/completed", "params": {"threadId": "thr-child", "turnId": "turn-c1", "item": {"type": "agentMessage", "id": "mc", "text": "CHILD", "phase": "final_answer"}}}}
+{"send": {"method": "turn/completed", "params": {"threadId": "thr-child", "turn": {"id": "turn-c1", "items": [], "itemsView": "full", "status": "completed", "error": null}}}}

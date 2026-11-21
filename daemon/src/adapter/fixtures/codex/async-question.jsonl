@@ -1,0 +1,9 @@
+{"expect":"initialize","result":{"userAgent":"rudder/0.168.0"}}
+{"expect":"initialized"}
+{"expect":"thread/start","result":{"thread":{"id":"thr-async-question","turns":[]}}}
+{"expect":"turn/start","result":{"turn":{"id":"turn-async-question","status":"inProgress"}}}
+{"send":{"method":"item/started","params":{"threadId":"thr-async-question","turnId":"turn-async-question","item":{"type":"agentMessage","id":"ask-1","text":""}}}}
+{"send":{"method":"item/agentMessage/delta","params":{"threadId":"thr-async-question","turnId":"turn-async-question","itemId":"ask-1","delta":"Which record should remain?\n- Keep both (Recommended)\n- Keep one"}}}
+{"send":{"method":"item/completed","params":{"threadId":"thr-async-question","turnId":"turn-async-question","item":{"type":"agentMessage","id":"ask-1","text":"Which record should remain?\n- Keep both (Recommended)\n- Keep one","delivery":"async","questions":[{"title":"Which record should remain?","options":["Keep both (Recommended)","Keep one"]}]}}}}
+{"send":{"method":"item/completed","params":{"threadId":"thr-async-question","turnId":"turn-async-question","item":{"type":"agentMessage","id":"follow-up","text":"I am ready to continue."}}}}
+{"send":{"method":"turn/completed","params":{"threadId":"thr-async-question","turn":{"id":"turn-async-question","status":"completed"}}}}

@@ -1,0 +1,85 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`readTranscript basic: block sequence 1`] = `
+[
+  "text/user",
+  "text/assistant",
+  "tool/assistant/completed/Bash",
+  "tool/assistant/completed/Bash",
+]
+`;
+
+exports[`readTranscript approval: block sequence 1`] = `
+[
+  "tool/assistant/completed/mcp__demo__tool",
+  "tool/assistant/completed/Bash",
+  "tool/assistant/completed/Bash",
+  "tool/assistant/completed/Read",
+  "permission/assistant/allowed",
+  "text/assistant",
+]
+`;
+
+exports[`readTranscript branch: block sequence 1`] = `
+[
+  "text/user",
+  "text/assistant",
+  "tool/assistant/running/Bash",
+  "text/user",
+  "text/assistant",
+]
+`;
+
+exports[`readTranscript compaction: block sequence 1`] = `
+[
+  "tool/assistant/running/mcp__demo__tool",
+  "tool/assistant/completed/mcp__demo__tool",
+  "tool/assistant/completed/Bash",
+  "text/assistant",
+  "compaction/assistant/done",
+]
+`;
+
+exports[`readTranscript interrupt: block sequence 1`] = `
+[
+  "text/assistant",
+  "text/user",
+  "text/assistant",
+  "tool/assistant/declined/Bash",
+  "text/assistant/notice",
+  "text/user",
+  "text/user",
+]
+`;
+
+exports[`readTranscript question: block sequence 1`] = `
+[
+  "text/assistant",
+  "tool/assistant/completed/Bash",
+  "tool/assistant/completed/Bash",
+  "question/assistant/answered",
+  "tool/assistant/completed/Bash",
+]
+`;
+
+exports[`readTranscript reject: block sequence 1`] = `
+[
+  "tool/assistant/completed/Bash",
+  "text/assistant",
+  "text/user",
+  "text/assistant",
+  "tool/assistant/declined/Bash",
+  "text/assistant/notice",
+  "text/user",
+  "text/user",
+]
+`;
+
+exports[`readTranscript sidechain: block sequence 1`] = `
+[
+  "text/user",
+  "text/assistant",
+  "tool/assistant/completed/Bash",
+  "tool/assistant/completed/Bash",
+]
+`;
