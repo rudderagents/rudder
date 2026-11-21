@@ -1,21 +1,49 @@
-# Rudder — the computer side (`rudder` / `rudderd`)
+<p align="right"><b>English</b> · <a href="README.zh.md">中文</a></p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="docs/assets/logo-light.png">
+    <img alt="Rudder" src="docs/assets/logo-light.png" width="96" height="96">
+  </picture>
+</p>
+
+<h1 align="center">Rudder</h1>
+
+<p align="center"><b>Your coding agents, anywhere.</b></p>
+
+<p align="center">End-to-end encrypted · No account · No tracking</p>
+
+<p align="center">
+  <a href="LICENSE"><img alt="License: FSL-1.1-ALv2" src="https://img.shields.io/badge/license-FSL--1.1--ALv2-2ea44f?style=flat-square"></a>
+  <img alt="Platform: macOS 13+" src="https://img.shields.io/badge/platform-macOS%2013%2B-111111?style=flat-square">
+  <a href="#install"><img alt="Homebrew" src="https://img.shields.io/badge/homebrew-rudderagents%2Ftap-f9d094?style=flat-square"></a>
+</p>
+
+<p align="center">
+  <img alt="Rudder: follow, chat with and approve your coding agents from your iPhone" src="docs/assets/hero-en.png" width="100%">
+</p>
+
+<p align="center">
+  <a href="#install">Install</a> ·
+  <a href="#how-it-works">How it works</a> ·
+  <a href="#use">Use</a> ·
+  <a href="#security">Security</a> ·
+  <a href="#license">License</a>
+</p>
 
 Rudder lets you steer the coding agents on your Mac from your iPhone. This repository holds the part that runs on
 your computer: the `rudder` daemon, plus the wire protocol the phone and the daemon speak.
 
-The daemon starts the official agent CLIs you already have and pay for (Claude Code, Codex, Grok, GitHub Copilot,
-Cursor, opencode, Kimi, Gemini CLI, goose, Qwen Code, pi), keeps your sessions on your computer, and streams them
-to the phone. Your code and transcripts stay on your machine.
+The daemon starts the official coding-agent CLIs you already use, keeps your sessions on your computer, and
+streams them to the phone. Your code and transcripts stay on your machine.
 
 > **What is open and what is not.** Only the computer daemon (`daemon/`) and the protocol definitions
 > (`daemon/src/protocol.ts`, `protocol/swift/` = the `RudderProtocol` Swift package) are published here, under the
-> [Functional Source License 1.1 with an Apache 2.0 future license](#license). The Rudder iOS app, the relay
-> service and the push gateway are closed source and are paid products. You can read exactly what runs on your
-> computer and what it sends over the network ([NETWORK.md](NETWORK.md)); you cannot build the app from this repo.
+> [Functional Source License 1.1 with an Apache 2.0 future license](#license). The Rudder iOS app, relay service and
+> push gateway are distributed separately. See [NETWORK.md](NETWORK.md) for what the daemon sends over the network.
 
 ## Install
-
-> **Coming soon.** The Homebrew tap is not live yet; the command below will work once `rudder` 1.0.0 is released.
 
 ```sh
 brew install rudderagents/tap/rudder
@@ -24,12 +52,32 @@ brew install rudderagents/tap/rudder
 The formula installs a prebuilt, Developer ID–signed and Apple-notarized single-file binary. (homebrew-core only
 accepts formulae built from source, which is why the notarized binary lives in our own tap.)
 
+See the [Homebrew tap](https://github.com/rudderagents/homebrew-tap) for release binaries and the [Rudder website](https://rudderagents.com/) for iPhone availability.
+
 ### Supported systems
 
 - macOS on Apple silicon (`darwin-arm64`) and Intel (`darwin-x64`). Two separate binaries are published; Homebrew
   picks the right one.
 - macOS 13.0 (Ventura) or later (the binaries are built with a minimum OS version of 13.0).
 - Windows builds exist in the source tree (`daemon/scripts/build-windows.sh`) but are **not released** for 1.0.
+
+## How it works
+
+<p align="center"><img alt="One command on your Mac, then scan to pair" src="docs/assets/feature-install-en.png" width="100%"></p>
+
+Run `rudder` and scan the QR code with the Rudder app on your iPhone. The code is single-use; after a phone pairs,
+the token rotates and the terminal prints the next one.
+
+<p align="center"><img alt="Read the exact command, then approve it" src="docs/assets/feature-approve-en.png" width="100%"></p>
+
+When an agent wants to run a command or edit a file, the request shows up in the chat, on your lock screen and in
+the Dynamic Island. Approve, deny, or keep chatting.
+
+<p align="center"><img alt="Away from home, the relay can't read your traffic" src="docs/assets/feature-relay-en.png" width="100%"></p>
+
+On the same Wi-Fi or Tailscale tailnet the phone connects directly (`https`/`wss` on port 7749, with certificate
+fingerprint pinning). When a direct connection is unavailable, supported actions can use the Rudder relay. A
+pairing-derived, end-to-end encrypted Noise channel lets the relay forward ciphertext. See [NETWORK.md](NETWORK.md).
 
 ## Use
 
@@ -143,7 +191,6 @@ which JavaScriptCore needs to run at full speed under the hardened runtime.
 
 Each release is built from a tag in this repository; the binaries attached to the tap release
 (`rudderagents/homebrew-tap`, tag `rudder-v<version>`) correspond to the source tag `v<version>` here.
-Reproducible, CI-attested release builds are planned after 1.0.
 
 ## Build from source
 
@@ -166,7 +213,9 @@ Swift protocol package:
 swift test --package-path protocol/swift
 ```
 
-Some comments in the source refer to design documents under `docs/…` that are not published yet.
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution process and DCO sign-off.
 
 ## License
 
