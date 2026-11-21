@@ -21,6 +21,7 @@ function seed(store: Store, count: number) {
 
 function stripNewIdentity({ id: _id, session_id: _session, rev: _rev, ...message }: MessageRow) { return message }
 
+// 50,000 rows take about 6 s on hosted CI runners; the test is about yielding, not speed.
 test("longCopyYieldsBeforePublishing", async () => {
   const store = new Store(":memory:")
   try {
@@ -37,7 +38,7 @@ test("longCopyYieldsBeforePublishing", async () => {
     expect(result?.last_seq).toBe(50_000)
     expect(store.listSessions()).toHaveLength(2)
   } finally { store.db.close() }
-})
+}, 30_000)
 
 test("copyPreservesSourceMessageAndForkSemantics", async () => {
   const store = new Store(":memory:")
